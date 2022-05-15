@@ -7,7 +7,7 @@ function App() {
 
   useEffect(() => {
     setInit(true);
-  })
+  },[]);
 
   return (
     <>

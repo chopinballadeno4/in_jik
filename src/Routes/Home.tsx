@@ -1,8 +1,24 @@
 import React from "react";
 import styled from "styled-components";
+import "../Scss/_bundle.scss";
 
 function Home() {
     //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Header
+
+    const UlParent = styled.ul`
+        list-style: none;
+        margin: 0;
+
+        li {
+            float: left;
+            button {
+                background-color: transparent;
+                padding: 0;
+                border: 0;
+            }
+        }
+    `;
+
     const Entire = styled.div`
         margin: 0;
         padding: 0;
@@ -24,7 +40,7 @@ function Home() {
 
     const HeaderSearch = styled.div`
         margin: 0 auto;
-        width: 45vw;
+        width: 46vw;
         height: 134px;
         position: relative;
     `;
@@ -33,22 +49,16 @@ function Home() {
         display: flex;
         justify-content: flex-end;
         list-style: none;
-        width: 45vw;
+        width: 46vw;
         height: 30px;
 
     `;
 
-    const HeaderSearchUserSign = styled.ul`
-        list-style: none;
-        margin: 0;
-
+    const HeaderSearchUserSign = styled(UlParent)`
         li {
             margin: 5px 5px;
             float: left;
-            button {
-                background-color: transparent;
-                padding: 0;
-                border: 0;
+            button {        
                 /* outline: 0; */
                 &:hover {
                     opacity: 0.5;
@@ -71,6 +81,7 @@ function Home() {
             border: 0;
             &:hover {
                 cursor: pointer;
+                opacity: 0.5;
             }
             img {
                 margin-left: 0px;
@@ -103,16 +114,37 @@ function Home() {
                 
             }
         }
-
-
-
     `;
 
     const HeaderMenu = styled.div`
         border-top: thin solid #e5e5e5;
         border-bottom: 5px solid #1e90ff;
-        width: 100vw;
+        
+    `;
+
+    const HeaderMenudiv = styled.div`
+        width: 46vw;
         height: 50px;
+        margin: 0 auto;
+    `;
+
+    const HeaderMenuitems = styled(UlParent)`
+        height: 50px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        li {
+            margin: 10px 10px;
+            button {
+                &:hover {
+                    cursor: pointer;
+                }
+                span {
+                    font-size: 17px;
+                    font-weight: 600;
+                }
+            }       
+        }
     `;
 
     //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Main
@@ -144,6 +176,14 @@ function Home() {
 
     }
 
+    const toResume = () => {
+
+    }
+
+    const toPost = () => {
+
+    }
+
 
     return (
         <Entire>
@@ -157,7 +197,7 @@ function Home() {
                                 </button>
                             </li>
                             <li>
-                                <span>│</span>
+                                <span style={{opacity: 0.2}}>│</span>
                             </li>
                             <li>
                                 <button onClick={toSignUp}>
@@ -178,7 +218,20 @@ function Home() {
                     </HeaderSearchinput>
                 </HeaderSearch>
                 <HeaderMenu>
-                    
+                    <HeaderMenudiv>
+                        <HeaderMenuitems>
+                            <li>
+                                <button onClick={toResume}>
+                                    <span>📝이력서등록</span>
+                                </button>
+                            </li>
+                            <li>
+                                <button onClick={toPost}>
+                                    <span>📢공고등록</span>
+                                </button>
+                            </li>
+                        </HeaderMenuitems>
+                    </HeaderMenudiv>
                 </HeaderMenu>
             </Header>
             <Main>
