@@ -24,18 +24,16 @@ function Home() {
 
     const HeaderSearch = styled.div`
         margin: 0 auto;
-        width: 1260px;
+        width: 45vw;
         height: 134px;
         position: relative;
-        background-color: pink;
     `;
 
     const HeaderSearchUser = styled.div`
-        background-color: skyblue;
         display: flex;
         justify-content: flex-end;
         list-style: none;
-        width: 1260px;
+        width: 45vw;
         height: 30px;
 
     `;
@@ -45,7 +43,7 @@ function Home() {
         margin: 0;
 
         li {
-            margin: 0 5px;
+            margin: 5px 5px;
             float: left;
             button {
                 background-color: transparent;
@@ -55,20 +53,27 @@ function Home() {
                 &:hover {
                     opacity: 0.5;
                 }
+                span {
+                    color : #222
+                }
             }
         }
     `;
 
     const HeaderSearchinput = styled.div`
+        display: flex;
+        //justify-content: space-between;
         height: 104px;
-     
-        button {
+        button {    
+            margin-left: 0;
+            padding: 0;
             background-color: transparent;
             border: 0;
             &:hover {
                 cursor: pointer;
             }
             img {
+                margin-left: 0px;
                 width: 170px;
                 height: 104px;
             }
@@ -76,13 +81,36 @@ function Home() {
     `;
 
     const HeaderSearchinputBox = styled.form`
-        
+        display: flex;
+        align-items: center;
+        margin: 0 auto ;
+
+        input {
+            &:first-child {
+                width: 422px;
+                height: 40px;
+                border: 3px solid #00a8ff;
+            }
+            &:last-child {
+                margin-left: 5px;
+                margin-top: 5px;
+                background: transparent;
+                background-image: url("img/searchicon.png");
+                background-size: 100% 100%;
+                width: 35px; height: 35px;
+                border: 0;
+                &:hover{ cursor: pointer }
+                
+            }
+        }
+
+
 
     `;
 
     const HeaderMenu = styled.div`
         border-top: thin solid #e5e5e5;
-        border-bottom: 3px solid #ffd203;
+        border-bottom: 5px solid #1e90ff;
         width: 100vw;
         height: 50px;
     `;
@@ -112,6 +140,10 @@ function Home() {
 
     }
 
+    const inputChange = () => {
+
+    }
+
 
     return (
         <Entire>
@@ -125,6 +157,9 @@ function Home() {
                                 </button>
                             </li>
                             <li>
+                                <span>│</span>
+                            </li>
+                            <li>
                                 <button onClick={toSignUp}>
                                     <span>회원가입</span>
                                 </button>
@@ -136,7 +171,9 @@ function Home() {
                                 <img src="img/injiklogo.png" alt="로고"></img>
                             </button>
                             <HeaderSearchinputBox>
-
+                                <input type="text" placeholder="검색어" onChange={inputChange} autoFocus/>
+                                {/* <input type="image" src="img/searchicon.png" name="Submit" value="Submit" alt="버튼이미지"/> */}
+                                <input type="submit" value=""/>
                             </HeaderSearchinputBox>
                     </HeaderSearchinput>
                 </HeaderSearch>
