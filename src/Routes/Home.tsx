@@ -187,7 +187,24 @@ function Home() {
     `;
 
     const BottomContact = styled.div`
-        
+        display: flex;
+        justify-content: center;
+        height: 80px;
+        margin-top: 20px;
+        button {
+            margin-top: 28px;
+            padding: 0;
+            border: 0;
+            background-color: transparent;
+        }
+
+        ul {
+            list-style: none;
+            li {
+                color : #7f8c8d;
+            }
+        }
+
     `;
 
 
@@ -282,7 +299,19 @@ function Home() {
                     </BottomInfo>
                 </Bottomnav>
                 <BottomContact>
-
+                    <button onClick={reload}>
+                        <img src="img/injiklogomini.png" alt="하단로고"></img>
+                    </button>
+                    <ul>
+                        <li style={{fontSize: 20}}>고객센터</li>
+                        <li style={{fontSize: 30,fontWeight: "bold",color: "#2f3640"}}>2017-2023</li>
+                        <li>전화 전 자주 묻는 질문을 확인하세요.</li>
+                    </ul>
+                    <ul>
+                        <li>주소: 대전광역시 유성구 대학로99 충남대학교</li>
+                        <li>대표이사: 홍성람</li>
+                        <li>평일 09:00 ~ 18:00</li>
+                    </ul>
                 </BottomContact>
             </Bottom>
         </Entire>
