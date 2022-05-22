@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FullTimeList } from "../sample";
+import { FullTimeList, PartTimeList } from "../sample";
 import styled from "styled-components";
 import "../Scss/_bundle.scss";
 
@@ -27,7 +27,7 @@ const Entire = styled.div`
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-rows: 187px 2400px 250px;
+    grid-template-rows: 187px 2500px 250px;
 `;
 
 const Header = styled.header`
@@ -152,6 +152,10 @@ const HeaderMenuitems = styled(UlParent)`
                 font-size: 17px;
                 font-weight: 600;
             }
+        }
+        span {
+                font-size: 17px;
+                font-weight: 600;
         }       
     }
 `;
@@ -165,7 +169,7 @@ const Main = styled.main`
     background-color: lightblue;
     grid-row: 1 2;
     display: grid;
-    grid-template-rows: 16fr 9fr 7fr;
+    grid-template-rows: 293px 12fr 6fr 13fr;
 `;
 
 const MainHeader = styled.header`
@@ -188,11 +192,16 @@ const MainHeaderName = styled.span`
     background-color: gray;
 `;
 
-const FullTimeElement = styled.div`
+const MainCareer = styled.div`
+  display: flex;
+  justify-content: center ;
+`;
+
+const MainCompo = styled.div`
     display: flex;
     flex-direction: column;
     width: 280px;
-    height: 200px;
+    height: 180px;
     margin: 20px;
     border: 1px solid #74b9ff;
     border-top: 3px solid #74b9ff;
@@ -222,7 +231,6 @@ const MainFullTimeList = styled.ul`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
 `;
 //━━━━━━━━━
 const MainPartTime = styled.section`
@@ -231,7 +239,9 @@ const MainPartTime = styled.section`
 `;
 
 const MainPartTimeList = styled.ul`
-    
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 `;
 //━━━━━━━━━
 const MainIntern = styled.section`
@@ -282,15 +292,17 @@ const BottomContact = styled.div`
     height: 80px;
     margin-top: 20px;
     button {
-        margin-top: 28px;
+        margin: 0 20px;
         padding: 0;
         border: 0;
         background-color: transparent;
     }
 
     ul {
+        margin: 0 10px;
         list-style: none;
         li {
+            margin: 5px;
             color : #7f8c8d;
         }
     }
@@ -370,6 +382,22 @@ function Home() {
                     <HeaderMenudiv>
                         <HeaderMenuitems>
                             <li>
+                                <span>Ξ 전체메뉴</span>
+                            </li>
+                            <li>
+                                <span>대기업채용</span>
+                            </li>
+                            <li>
+                                <span>신입/경력</span>
+                            </li>
+                            <li>
+                                <span>고객지원</span>
+                            </li>
+                            <li>
+                                <span
+                                style={{marginRight: "140px"}}>인적성·면접</span>
+                            </li>
+                            <li>
                                 <button onClick={toResume}>
                                     <span>📝이력서등록</span>
                                 </button>
@@ -385,36 +413,30 @@ function Home() {
             </Header>
             {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
             <Main>
+                <MainCareer>
+                    <img
+                    src="img/career.png" alt="직업">
+                    </img>
+                </MainCareer>
                 <MainFullTime>
                     <MainHeader>
                         <MainHeaderName>채용</MainHeaderName>
                     </MainHeader>
                     <MainFullTimeList>
                         {FullTimeList.map(element => (
-                            // <FullTimeElement>
-                            //     <Link
-                            //     to={{pathname: `/${element.name}/${element.no}`}}
-                            //     state={{name: element.name, no: element.no}}
-                            //     >
-                            //         <Img
-                            //         src={`https://logo.clearbit.com/${element.name}.com`}
-                            //         />
-                            //         <span>{element.name}</span>
-                            //     </Link>
-                            // </FullTimeElement>
                             <li>
                                 <Link
                                 to={{pathname: `/${element.name}/${element.no}`}}
-                                state={{name: element.name, no: element.no}}
+                                state={{name: element.name, cata: element.cata, no: element.no}}
                                 style={{textDecorationLine: "none"}}
                                 >
-                                    <FullTimeElement>
+                                    <MainCompo>
                                         <Img
                                         src={`https://logo.clearbit.com/${element.name}.com`}
                                         />
                                         <Brand>{element.name}</Brand>
                                         <Info>{element.info}</Info>
-                                    </FullTimeElement>
+                                    </MainCompo>
                                 </Link>
                             </li>
                         ))}
@@ -425,7 +447,21 @@ function Home() {
                         <MainHeaderName>인턴</MainHeaderName>
                     </MainHeader>
                     <MainPartTimeList>
-                        
+                        {PartTimeList.map(element => (
+                            <li>
+                                <Link
+                                to={{pathname: `/${element.name}/${element.no}`}}
+                                state={{name: element.name, no: element.no, }}
+                                style={{textDecorationLine: "none"}}
+                                >
+                                    <MainCompo>
+                                        <Brand>{element.name}</Brand>
+                                        <Info>{element.day}</Info>
+                                        <Info>{element.pay}</Info>
+                                    </MainCompo>
+                                </Link>
+                            </li>
+                        ))}
                     </MainPartTimeList>
                 </MainPartTime>
                 <MainIntern>
