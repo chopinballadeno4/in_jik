@@ -1,5 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { FullTimeList } from "../sample";
 import styled from "styled-components";
 import "../Scss/_bundle.scss";
 
@@ -30,7 +32,8 @@ const Entire = styled.div`
 
 const Header = styled.header`
     padding-left: 0px;
-    background-color: #ffffff;
+    //background-color: #ffffff;
+    background-color: ${(props) => props.theme.mainbgcolor};
     grid-row: 0 1;
     display: flex;
     flex-direction: column;
@@ -157,10 +160,12 @@ const HeaderMenuitems = styled(UlParent)`
 const Main = styled.main`
     width: 70vw;
     margin: 0 auto;
-    background-color: #f7f7f7;
+    margin-top: 3px;
+    //background-color: ${(props) => props.theme.mainbgcolor};
+    background-color: lightblue;
     grid-row: 1 2;
     display: grid;
-    grid-template-rows: 1fr 16fr 9fr 7fr;
+    grid-template-rows: 16fr 9fr 7fr;
 `;
 
 const MainHeader = styled.header`
@@ -171,24 +176,45 @@ const MainHeader = styled.header`
     background-color: yellow;
 `;
 
+const Img = styled.img`
+    width: 250px;
+    height: 60px;
+    margin-top: 10px;
+    object-fit: scale-down ;
+`;
+
 const MainHeaderName = styled.span`
     font-size: 20px;
     background-color: gray;
 `;
 
-const MainBrand = styled.div`
-
-`;
-
 const FullTimeElement = styled.div`
-    width: 350px;
-    height: 300px;
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: 200px;
     margin: 20px;
+    border: 1px solid #74b9ff;
+    border-top: 3px solid #74b9ff;
     background-color: ${(props) => props.theme.mainbgcolor};
+    text-decoration-line: none;
 `;
+
+const Info = styled.span`
+    margin-top: 10px;
+    margin-left: 15px;
+    color: ${(props) => props.theme.normaltextcolor};
+    font-size: 18px;
+`;
+
+const Brand = styled(Info)`
+    margin-top: 30px;
+    font-weight: 700;
+`;
+
 //━━━━━━━━━
 const MainFullTime = styled.section`
-    background-color: green;
+    //background-color: green;
 
 `;
 
@@ -201,8 +227,7 @@ const MainFullTimeList = styled.ul`
 //━━━━━━━━━
 const MainPartTime = styled.section`
     background-color: pink;
-    //grid-row: 3 4;
-    
+    //grid-row: 3 4;  
 `;
 
 const MainPartTimeList = styled.ul`
@@ -272,10 +297,15 @@ const BottomContact = styled.div`
 
 `;
 
-function Home() {
-    // useEffect(() => {
-    //     ()();
-    // }, []);
+interface BrandList {
+    name: string;
+    no: number; 
+}
+
+
+function Home() {    
+    useEffect(() => {
+    }, []);
 
 
     const toSignIn = () => {
@@ -355,15 +385,39 @@ function Home() {
             </Header>
             {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
             <Main>
-                <MainBrand>
-
-                </MainBrand>
                 <MainFullTime>
                     <MainHeader>
                         <MainHeaderName>채용</MainHeaderName>
                     </MainHeader>
                     <MainFullTimeList>
-                        {<FullTimeElement/>}
+                        {FullTimeList.map(element => (
+                            // <FullTimeElement>
+                            //     <Link
+                            //     to={{pathname: `/${element.name}/${element.no}`}}
+                            //     state={{name: element.name, no: element.no}}
+                            //     >
+                            //         <Img
+                            //         src={`https://logo.clearbit.com/${element.name}.com`}
+                            //         />
+                            //         <span>{element.name}</span>
+                            //     </Link>
+                            // </FullTimeElement>
+                            <li>
+                                <Link
+                                to={{pathname: `/${element.name}/${element.no}`}}
+                                state={{name: element.name, no: element.no}}
+                                style={{textDecorationLine: "none"}}
+                                >
+                                    <FullTimeElement>
+                                        <Img
+                                        src={`https://logo.clearbit.com/${element.name}.com`}
+                                        />
+                                        <Brand>{element.name}</Brand>
+                                        <Info>{element.info}</Info>
+                                    </FullTimeElement>
+                                </Link>
+                            </li>
+                        ))}
                     </MainFullTimeList>
                 </MainFullTime>
                 <MainPartTime>

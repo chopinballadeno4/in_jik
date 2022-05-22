@@ -1,1 +1,3 @@
 1. ThemeProvider로 공통속성 뽑아내기 ex) font-color, box-color hovercolor 
+
+last. 화면 크기 상관없이 크기 맞추기
