@@ -1,211 +1,281 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import "../Scss/_bundle.scss";
 
-function Home() {
-    //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Header
+//━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Header
 
-    const UlParent = styled.ul`
-        list-style: none;
-        margin: 0;
+const UlParent = styled.ul`
+    list-style: none;
+    margin: 0;
 
-        li {
-            float: left;
-            button {
-                background-color: transparent;
-                padding: 0;
-                border: 0;
-            }
-        }
-    `;
-
-    const Entire = styled.div`
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        height: 100vh;
-        display: grid;
-        grid-template-rows: 187px 1200px 250px;
-    `;
-
-    const Header = styled.header`
-        padding-left: 0px;
-        background-color: #ffffff;
-        grid-row: 0 1;
-        display: flex;
-        flex-direction: column;
-        width: 100vw;
-        height: 100vh;
-    `;
-
-    const HeaderSearch = styled.div`
-        margin: 0 auto;
-        width: 46vw;
-        height: 134px;
-        position: relative;
-    `;
-
-    const HeaderSearchUser = styled.div`
-        display: flex;
-        justify-content: flex-end;
-        list-style: none;
-        width: 46vw;
-        height: 30px;
-
-    `;
-
-    const HeaderSearchUserSign = styled(UlParent)`
-        li {
-            margin: 5px 5px;
-            float: left;
-            button {        
-                /* outline: 0; */
-                &:hover {
-                    opacity: 0.5;
-                }
-                span {
-                    color : #222
-                }
-            }
-        }
-    `;
-
-    const HeaderSearchinput = styled.div`
-        display: flex;
-        //justify-content: space-between;
-        height: 104px;
-        button {    
-            margin-left: 0;
-            padding: 0;
+    li {
+        float: left;
+        button {
             background-color: transparent;
+            padding: 0;
             border: 0;
+        }
+    }
+`;
+
+const Entire = styled.div`
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 187px 2400px 250px;
+`;
+
+const Header = styled.header`
+    padding-left: 0px;
+    background-color: #ffffff;
+    grid-row: 0 1;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+`;
+
+const HeaderSearch = styled.div`
+    margin: 0 auto;
+    width: 46vw;
+    height: 134px;
+    position: relative;
+`;
+
+const HeaderSearchUser = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    width: 46vw;
+    height: 30px;
+
+`;
+
+const HeaderSearchUserSign = styled(UlParent)`
+    li {
+        margin: 5px 5px;
+        float: left;
+        button {        
+            /* outline: 0; */
             &:hover {
-                cursor: pointer;
                 opacity: 0.5;
             }
-            img {
-                margin-left: 0px;
-                width: 170px;
-                height: 104px;
+            span {
+                color : #222
             }
         }
-    `;
+    }
+`;
 
-    const HeaderSearchinputBox = styled.form`
-        display: flex;
-        align-items: center;
-        margin: 0 auto ;
-
-        input {
-            &:first-child {
-                width: 422px;
-                height: 40px;
-                border: 3px solid #00a8ff;
-            }
-            &:last-child {
-                margin-left: 5px;
-                margin-top: 5px;
-                background: transparent;
-                background-image: url("img/searchicon.png");
-                background-size: 100% 100%;
-                width: 35px; height: 35px;
-                border: 0;
-                &:hover{ cursor: pointer }
-                
-            }
+const HeaderSearchinput = styled.div`
+    display: flex;
+    position: relative;
+    //justify-content: space-between;
+    width: 46vw;
+    height: 104px;
+    button {
+        position: absolute;
+        margin-left: 0;
+        padding: 0;
+        background-color: transparent;
+        border: 0;
+        &:hover {
+            cursor: pointer;
+            opacity: 0.5;
         }
-    `;
-
-    const HeaderMenu = styled.div`
-        border-top: thin solid #e5e5e5;
-        border-bottom: 5px solid #1e90ff;
-        
-    `;
-
-    const HeaderMenudiv = styled.div`
-        width: 46vw;
-        height: 50px;
-        margin: 0 auto;
-    `;
-
-    const HeaderMenuitems = styled(UlParent)`
-        height: 50px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        li {
-            margin: 10px 10px;
-            button {
-                &:hover {
-                    cursor: pointer;
-                }
-                span {
-                    font-size: 17px;
-                    font-weight: 600;
-                }
-            }       
+        img {
+            margin-left: 0px;
+            width: 170px;
+            height: 104px;
         }
-    `;
+    }
+`;
 
-    //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Main
-   
-   const Main = styled.main`
-        background-color: #f7f7f7;
-        grid-row: 1 2;
-    `;
+const HeaderSearchinputBox = styled.form`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
 
-    //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Buttom
-    const Bottom = styled.article`
-        background-color: #ffffff;
-        grid-row: 2 3;
-    `;
-
-    const Bottomnav = styled.div`
-        height: 50px;
-        border-top: 2px solid #1e90ff;
-        border-bottom: thin solid #e5e5e5;
-    `;
-
-    const BottomInfo = styled(UlParent)`
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        li {
-            margin: 0 30px;
-            float: left;
-            button {
-                &:hover {
-                    opacity: 0.5;
-                }
-                span {
-                    font-size: 15px;
-                    color : #222;
-                }
-            }
+    input {
+        &:first-child {
+            width: 422px;
+            height: 40px;
+            border: 3px solid #00a8ff;
         }
-    `;
-
-    const BottomContact = styled.div`
-        display: flex;
-        justify-content: center;
-        height: 80px;
-        margin-top: 20px;
-        button {
-            margin-top: 28px;
-            padding: 0;
+        &:last-child {
+            margin-left: 5px;
+            margin-top: 5px;
+            background: transparent;
+            background-image: url("img/searchicon.png");
+            background-size: 100% 100%;
+            width: 35px; height: 35px;
             border: 0;
-            background-color: transparent;
+            &:hover{ cursor: pointer }
+            
         }
+    }
+`;
 
-        ul {
-            list-style: none;
-            li {
-                color : #7f8c8d;
+const HeaderMenu = styled.div`
+    border-top: thin solid #e5e5e5;
+    border-bottom: 5px solid #1e90ff;
+    
+`;
+
+const HeaderMenudiv = styled.div`
+    width: 46vw;
+    height: 50px;
+    margin: 0 auto;
+`;
+
+const HeaderMenuitems = styled(UlParent)`
+    height: 50px;
+    display: flex;
+    position: relative;
+    z-index: 101;
+    justify-content: flex-end;
+    align-items: center;
+    li {
+        margin: 10px 10px;
+        button {
+            &:hover {
+                cursor: pointer;
+            }
+            span {
+                font-size: 17px;
+                font-weight: 600;
+            }
+        }       
+    }
+`;
+
+//━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Main 
+const Main = styled.main`
+    width: 70vw;
+    margin: 0 auto;
+    background-color: #f7f7f7;
+    grid-row: 1 2;
+    display: grid;
+    grid-template-rows: 1fr 16fr 9fr 7fr;
+`;
+
+const MainHeader = styled.header`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50px;
+    background-color: yellow;
+`;
+
+const MainHeaderName = styled.span`
+    font-size: 20px;
+    background-color: gray;
+`;
+
+const MainBrand = styled.div`
+
+`;
+
+const FullTimeElement = styled.div`
+    width: 350px;
+    height: 300px;
+    margin: 20px;
+    background-color: ${(props) => props.theme.mainbgcolor};
+`;
+//━━━━━━━━━
+const MainFullTime = styled.section`
+    background-color: green;
+
+`;
+
+const MainFullTimeList = styled.ul`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+`;
+//━━━━━━━━━
+const MainPartTime = styled.section`
+    background-color: pink;
+    //grid-row: 3 4;
+    
+`;
+
+const MainPartTimeList = styled.ul`
+    
+`;
+//━━━━━━━━━
+const MainIntern = styled.section`
+    background-color: blue;
+
+    
+`;
+
+const HomeInternList = styled.ul`
+    
+`;
+
+//━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Buttom
+const Bottom = styled.footer`
+    background-color: #ffffff;
+    grid-row: 2 3;
+`;
+
+const Bottomnav = styled.div`
+    height: 50px;
+    border-top: 2px solid #1e90ff;
+    border-bottom: thin solid #e5e5e5;
+`;
+
+const BottomInfo = styled(UlParent)`
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    li {
+        margin: 0 30px;
+        float: left;
+        button {
+            &:hover {
+                opacity: 0.5;
+            }
+            span {
+                font-size: 15px;
+                color : #222;
             }
         }
+    }
+`;
 
-    `;
+const BottomContact = styled.div`
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    margin-top: 20px;
+    button {
+        margin-top: 28px;
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+    }
+
+    ul {
+        list-style: none;
+        li {
+            color : #7f8c8d;
+        }
+    }
+
+`;
+
+function Home() {
+    // useEffect(() => {
+    //     ()();
+    // }, []);
 
 
     const toSignIn = () => {
@@ -220,8 +290,10 @@ function Home() {
 
     }
 
-    const inputChange = () => {
-
+    const inputChange = (event: React.FormEvent<HTMLInputElement>) => {
+        const {
+            currentTarget: { value },
+        } = event;
     }
 
     const toResume = () => {
@@ -231,7 +303,6 @@ function Home() {
     const toPost = () => {
 
     }
-
 
     return (
         <Entire>
@@ -282,10 +353,38 @@ function Home() {
                     </HeaderMenudiv>
                 </HeaderMenu>
             </Header>
+            {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
             <Main>
-                <h1>Main</h1>
+                <MainBrand>
+
+                </MainBrand>
+                <MainFullTime>
+                    <MainHeader>
+                        <MainHeaderName>채용</MainHeaderName>
+                    </MainHeader>
+                    <MainFullTimeList>
+                        {<FullTimeElement/>}
+                    </MainFullTimeList>
+                </MainFullTime>
+                <MainPartTime>
+                    <MainHeader>
+                        <MainHeaderName>인턴</MainHeaderName>
+                    </MainHeader>
+                    <MainPartTimeList>
+                        
+                    </MainPartTimeList>
+                </MainPartTime>
+                <MainIntern>
+                    <MainHeader>
+                        <MainHeaderName>아르바이트</MainHeaderName>
+                    </MainHeader>
+                    <HomeInternList>
+                        
+                    </HomeInternList>
+                </MainIntern>
             </Main>
-            <Bottom>
+            {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+            <Bottom> 
                 <Bottomnav>
                     <BottomInfo>
                             <li><button><span>회사소개</span></button></li>

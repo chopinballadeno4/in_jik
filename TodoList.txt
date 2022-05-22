@@ -1,1 +1,1 @@
-1. header input 박스 가운데로
+1. ThemeProvider로 공통속성 뽑아내기 ex) font-color, box-color hovercolor 
