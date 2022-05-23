@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FullTimeList, PartTimeList } from "../sample";
+import { FullTimeList, PartTimeList, InternList } from "../sample";
 import styled from "styled-components";
 import "../Scss/_bundle.scss";
 
@@ -27,7 +27,7 @@ const Entire = styled.div`
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-rows: 187px 2500px 250px;
+    grid-template-rows: 187px 3000px 250px;
 `;
 
 const Header = styled.header`
@@ -166,7 +166,6 @@ const Main = styled.main`
     margin: 0 auto;
     margin-top: 3px;
     //background-color: ${(props) => props.theme.mainbgcolor};
-    background-color: lightblue;
     grid-row: 1 2;
     display: grid;
     grid-template-rows: 293px 12fr 6fr 13fr;
@@ -177,7 +176,6 @@ const MainHeader = styled.header`
     flex-direction: column;
     justify-content: center;
     height: 50px;
-    background-color: yellow;
 `;
 
 const Img = styled.img`
@@ -188,11 +186,13 @@ const Img = styled.img`
 `;
 
 const MainHeaderName = styled.span`
+    margin-left: 50px;
     font-size: 20px;
-    background-color: gray;
+    font-weight: 700;
 `;
 
 const MainCareer = styled.div`
+    margin: 20px;
   display: flex;
   justify-content: center ;
 `;
@@ -213,17 +213,17 @@ const Info = styled.span`
     margin-top: 10px;
     margin-left: 15px;
     color: ${(props) => props.theme.normaltextcolor};
-    font-size: 18px;
+    font-size: 14px;
 `;
 
 const Brand = styled(Info)`
+    font-size: 18px;
     margin-top: 30px;
     font-weight: 700;
 `;
 
 //━━━━━━━━━
 const MainFullTime = styled.section`
-    //background-color: green;
 
 `;
 
@@ -234,8 +234,6 @@ const MainFullTimeList = styled.ul`
 `;
 //━━━━━━━━━
 const MainPartTime = styled.section`
-    background-color: pink;
-    //grid-row: 3 4;  
 `;
 
 const MainPartTimeList = styled.ul`
@@ -245,13 +243,12 @@ const MainPartTimeList = styled.ul`
 `;
 //━━━━━━━━━
 const MainIntern = styled.section`
-    background-color: blue;
-
-    
 `;
 
 const HomeInternList = styled.ul`
-    
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 `;
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Buttom
@@ -456,8 +453,8 @@ function Home() {
                                 >
                                     <MainCompo>
                                         <Brand>{element.name}</Brand>
-                                        <Info>{element.day}</Info>
-                                        <Info>{element.pay}</Info>
+                                        <Info>{`근무요일: ${element.day}`}</Info>
+                                        <Info>{`시급: ${element.pay}`}</Info>
                                     </MainCompo>
                                 </Link>
                             </li>
@@ -469,7 +466,23 @@ function Home() {
                         <MainHeaderName>아르바이트</MainHeaderName>
                     </MainHeader>
                     <HomeInternList>
-                        
+                        {InternList.map(element => (
+                            <li>
+                                <Link
+                                to={{pathname: `/${element.name}/${element.no}`}}
+                                state={{name: element.name, cata: element.cata, no: element.no}}
+                                style={{textDecorationLine: "none"}}
+                                >
+                                    <MainCompo>
+                                        <Img
+                                        src={`https://logo.clearbit.com/${element.name}.com`}
+                                        />
+                                        <Brand>{element.name}</Brand>
+                                        <Info>{`근무기간: ${element.period}`}</Info>
+                                    </MainCompo>
+                                </Link>
+                            </li>
+                        ))}
                     </HomeInternList>
                 </MainIntern>
             </Main>

@@ -13,6 +13,13 @@ interface IPartTimeList {
     pay: number, 
 }
 
+interface IInternList {
+    name: string,
+    cata: string,
+    no: number,
+    period: string,
+}
+
 export const FullTimeList : IFullTimeList [] = [
     {
         name: "GMARKET",
@@ -209,6 +216,65 @@ export const PartTimeList : IPartTimeList [] = [
     },
 ];
 
-export const InterList = [
-
+export const InternList : IInternList [] = [
+    {
+        name: "ROLEX",
+        cata: "Intern",
+        no: 21,
+        period: "2022 / 7~9",
+    },
+    {
+        name: "3M",
+        cata: "Intern",
+        no: 22,
+        period: "2022 / 7~9",
+    },
+    {
+        name: "KFC",
+        cata: "Intern",
+        no: 23,
+        period: "2022 / 7~9",
+    },
+    {
+        name: "LINKEDIN",
+        cata: "Intern",
+        no: 24,
+        period: "2022 / 7~9",
+    },
+    {
+        name: "PRADA",
+        cata: "Intern",
+        no: 25,
+        period: "2022 / 7~9",
+    },
+    {
+        name: "CARTIER",
+        cata: "Intern",
+        no: 26,
+        period: "2022 / 7~9",
+    },
+    {
+        name: "DIOR",
+        cata: "Intern",
+        no: 27,
+        period: "2022 / 7~9",
+    },
+    {
+        name: "GUCCI",
+        cata: "Intern",
+        no: 28,
+        period: "2022 / 7~9",
+    },
+    {
+        name: "LEGO",
+        cata: "Intern",
+        no: 29,
+        period: "2022 / 7~9",
+    },
+    {
+        name: "BURBERRY",
+        cata: "Intern",
+        no: 30,
+        period: "2022 / 7~9",
+    },
 ];
