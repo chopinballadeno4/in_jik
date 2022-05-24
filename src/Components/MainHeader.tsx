@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const UlParent = styled.ul`
@@ -41,16 +42,16 @@ const HeaderSearchUser = styled.div`
 
 const HeaderSearchUserSign = styled(UlParent)`
     li {
-        margin: 5px 5px;
+        margin: 10px 5px;
         float: left;
-        button {        
-            /* outline: 0; */
-            &:hover {
-                opacity: 0.5;
-            }
-            span {
-                color : #222
-            }
+        outline: 0;
+        &:hover {
+            opacity: 0.5;
+        }
+
+        span {
+            color : #222;
+            font-size: 14px;
         }
     }
 `;
@@ -107,7 +108,7 @@ const HeaderSearchinputBox = styled.form`
 
 const HeaderMenu = styled.div`
     border-top: thin solid #e5e5e5;
-    border-bottom: 5px solid #1e90ff;
+    border-bottom: 5px solid ${(props) => props.theme.bordercolor};
     
 `;
 
@@ -129,6 +130,7 @@ const HeaderMenuitems = styled(UlParent)`
         button {
             &:hover {
                 cursor: pointer;
+                color: ${(props) => props.theme.hovertextcolor};
             }
             span {
                 font-size: 17px;
@@ -138,17 +140,13 @@ const HeaderMenuitems = styled(UlParent)`
         span {
                 font-size: 17px;
                 font-weight: 600;
+                &:hover {
+                    cursor: pointer;
+                    color: ${(props) => props.theme.hovertextcolor};
+                }
         }       
     }
 `;
-
-const toSignIn = () => {
-
-}
-
-const toSignUp = () => {
-
-}
 
 const reload = () => {
 
@@ -168,7 +166,7 @@ const toPost = () => {
 
 }
 
-function InjikHeader () {
+function MainHeader() {
 
     return (
         <Header>
@@ -176,17 +174,23 @@ function InjikHeader () {
                 <HeaderSearchUser>
                     <HeaderSearchUserSign>
                         <li>
-                            <button onClick={toSignIn}>
+                            <Link
+                            to="/Signin"
+                            style={{ textDecoration: 'none'}}
+                            >
                                 <span>로그인</span>
-                            </button>
+                            </Link>
                         </li>
                         <li>
                             <span style={{opacity: 0.2}}>│</span>
                         </li>
                         <li>
-                            <button onClick={toSignUp}>
+                            <Link
+                            to="/Signup"
+                            style={{ textDecoration: 'none'}}
+                            >
                                 <span>회원가입</span>
-                            </button>
+                            </Link>
                         </li>
                     </HeaderSearchUserSign>
                 </HeaderSearchUser>
@@ -238,4 +242,4 @@ function InjikHeader () {
 
 }
 
-export default InjikHeader;
+export default MainHeader;

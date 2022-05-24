@@ -75,7 +75,7 @@ const reload = () => {
 }
 
 
-function InjikFooter () {
+function MainFooter() {
     return (
         <Bottom> 
             <Bottomnav>
@@ -110,4 +110,4 @@ function InjikFooter () {
 
 }
 
-export default InjikFooter;
+export default MainFooter

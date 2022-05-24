@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FullTimeList, PartTimeList, InternList } from "../sample";
 import styled from "styled-components";
+import MainHeader from "../Components/MainHeader";
+import MainFooter from "../Components/MainFooter";
 import "../Scss/_bundle.scss";
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Main 
@@ -16,7 +18,7 @@ const Main = styled.main`
     grid-template-rows: 293px 12fr 6fr 13fr;
 `;
 
-const MainHeader = styled.header`
+const CataName = styled.header`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -100,6 +102,8 @@ const HomeInternList = styled.ul`
 function Home() {    
 
     return (
+        <>
+        <MainHeader/>
         <Main>
             <MainCareer>
                 <img
@@ -107,9 +111,9 @@ function Home() {
                 </img>
             </MainCareer>
             <MainFullTime>
-                <MainHeader>
+                <CataName>
                     <MainHeaderName>채용</MainHeaderName>
-                </MainHeader>
+                </CataName>
                 <MainFullTimeList>
                     {FullTimeList.map(element => (
                         <li>
@@ -131,9 +135,9 @@ function Home() {
                 </MainFullTimeList>
             </MainFullTime>
             <MainPartTime>
-                <MainHeader>
+                <CataName>
                     <MainHeaderName>아르바이트</MainHeaderName>
-                </MainHeader>
+                </CataName>
                 <MainPartTimeList>
                     {PartTimeList.map(element => (
                         <li>
@@ -153,9 +157,9 @@ function Home() {
                 </MainPartTimeList>
             </MainPartTime>
             <MainIntern>
-                <MainHeader>
+                <CataName>
                     <MainHeaderName>인턴</MainHeaderName>
-                </MainHeader>
+                </CataName>
                 <HomeInternList>
                     {InternList.map(element => (
                         <li>
@@ -177,6 +181,8 @@ function Home() {
                 </HomeInternList>
             </MainIntern>
         </Main>
+        <MainFooter/>
+        </>
     );
 }
 
