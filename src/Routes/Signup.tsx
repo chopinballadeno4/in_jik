@@ -8,14 +8,15 @@ const Main = styled.main`
     flex-direction: column;
     align-items: center;
     width: 20vw;
-    height: 100vh;
+    height: 100%;
     margin: 0 auto;
 `;
 
 const Img = styled.img`
     margin-top: 50px;
-    width: 243px;
-    height: 234px; 
+    margin-bottom: 80px;
+    object-fit: scale-down;
+    height: 300px;
 `;
 
 const Header = styled.span`
@@ -32,29 +33,44 @@ const MainEmail = styled.div`
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(2, 1fr);
-    background-color:#0fbcf9 ;
-    height: 80px;  
+    height: 100px;  
 `;
 
 const MailHeader = styled(Header)`
+    margin-bottom: 10px;
     grid-row: 1 / 2;
     grid-column: 1 / 3;
 `;
 
 const MainEmailButton = styled.button`
+    display: flex;
+    align-items: center;
+    border: 1px solid #a4b0be;
+    background-color: ${(props) => props.theme.mainbgcolor};
+    font-size: 15px;
+    font-weight: bold;
     grid-row: 2 / 4;
+    span {
+        margin-left: 10px;
+    }
 `;
+
+const MainEmailButtonImg = styled.img`
+    object-fit: scale-down;
+    height: 40px;
+`;
+
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const MainPW = styled.div`
     margin-top: 30px;
     width: 400px;
     display: grid;
     grid-template-rows: 1fr 2fr 2fr;
-    background-color: #ffdd59;
     height: 130px;  
 `;
 
 const PWHeader = styled(Header)`
+    margin-bottom: 10px;
     grid-row: 1 / 2;
 `;
 
@@ -72,6 +88,7 @@ const MainAgree = styled.div`
 `;
 
 const AgreeHeader = styled(Header)`
+    margin-bottom: 10px;
     margin-top: 15px;
     grid-row: 1 / 2;
 `;
@@ -95,7 +112,7 @@ const MainAgreeListli = styled.li`
         
     }
     span:first-child {
-            color: black;
+        color: black;
     }
 `;
 
@@ -134,7 +151,6 @@ const MainFin = styled.div`
 `;
 
 const MainFinButton = styled.button`
-    display: block;
     margin: 0 auto;
     width: 220px;
     height: 60px;
@@ -170,20 +186,22 @@ function Signup () {
         <>
             <Main>
                 <Img
-                src="img/injiklogo3.png"
+                src="img/injiklogo2.png"
                 >
                 </Img>
                 <MainEmail>
                     <MailHeader>번개인증</MailHeader>
                     <MainEmailButton>
-                        휴대폰 인증
+                        <MainEmailButtonImg src="img/phone.png"/>
+                        <span>휴대폰 인증</span>
                     </MainEmailButton>
                     <MainEmailButton>
-                        이메일 인증
+                        <MainEmailButtonImg src="img/email.png"/>
+                        <span>이메일 인증</span>
                     </MainEmailButton>
                 </MainEmail>
                 <MainPW>
-                    <PWHeader>비밀번호/확인</PWHeader>
+                    <PWHeader>비밀번호&nbsp;/&nbsp;확인</PWHeader>
                     <MainPWInput
                     placeholder="* 비밀번호">
                     </MainPWInput>
