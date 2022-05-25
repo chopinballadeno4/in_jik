@@ -142,7 +142,7 @@ function Signin() {
             <MainLogin>
                 <MainLoginManual>
                     <MainLoginManualh1>인직입니다. 환영합니다🕊️</MainLoginManualh1>
-                    <MainLoginManualh3>걱정 없는 구인/구직 활동을 해보세요.</MainLoginManualh3>
+                    <MainLoginManualh3>걱정 없는 구인/구직 사이트입니다.</MainLoginManualh3>
                 </MainLoginManual>
                 <MainLoginHistory>
                     <input type="checkbox"/>

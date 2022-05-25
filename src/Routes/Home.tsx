@@ -40,8 +40,8 @@ const MainHeaderName = styled.span`
 
 const MainCareer = styled.div`
     margin: 20px;
-  display: flex;
-  justify-content: center ;
+    display: flex;
+    justify-content: center ;
 `;
 
 const MainCompo = styled.div`
