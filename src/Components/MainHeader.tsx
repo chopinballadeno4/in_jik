@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const UlParent = styled.ul`
@@ -148,25 +149,37 @@ const HeaderMenuitems = styled(UlParent)`
     }
 `;
 
-const reload = () => {
-
-}
-
-const inputChange = (event: React.FormEvent<HTMLInputElement>) => {
-    const {
-        currentTarget: { value },
-    } = event;
-}
-
-const toResume = () => {
-
-}
-
-const toPost = () => {
-
-}
-
 function MainHeader() {
+    const navigate = useNavigate();
+    const [isLogined, setIsLogined] = useState(true);
+
+    const reload = () => {
+
+    }
+    
+    const inputChange = (event: React.FormEvent<HTMLInputElement>) => {
+        const {
+            currentTarget: { value },
+        } = event;
+    }
+    
+    const toResume = () => {
+        if(isLogined) {
+            navigate("/DrawResume");
+        } else {
+            alert("로그인이 필요합니다.");
+            navigate("/Signin");
+        }
+    }
+    
+    const toPost = () => {
+        if(isLogined) {
+            navigate("/DrawPost");
+        } else {
+            alert("로그인이 필요합니다.");
+            navigate("/Signin");
+        }
+    }
 
     return (
         <Header>
