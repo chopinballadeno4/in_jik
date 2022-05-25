@@ -17,7 +17,7 @@ const UlParent = styled.ul`
 
 const Bottom = styled.footer`
     height: 250px;
-    weight: 100vw;
+    weight: 100%;
     background-color: #ffffff;
 `;
 
@@ -92,7 +92,7 @@ function MainFooter() {
             </Bottomnav>
             <BottomContact>
                 <button onClick={reload}>
-                    <img src="img/injiklogomini.png" alt="하단로고"></img>
+                    <img src={require("../img/injiklogomini.png")} alt="하단로고"></img>
                 </button>
                 <ul>
                     <li style={{fontSize: 20}}>고객센터</li>

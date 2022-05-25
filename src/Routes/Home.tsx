@@ -9,8 +9,8 @@ import "../Scss/_bundle.scss";
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Main 
 const Main = styled.main`
-    width: 70vw;
-    height: 2500px;
+    width: 70%;
+    height: 3000px;
     margin: 0 auto;
     margin-top: 3px;
     //background-color: ${(props) => props.theme.mainbgcolor};
@@ -107,7 +107,7 @@ function Home() {
         <Main>
             <MainCareer>
                 <img
-                src="img/career.png" alt="직업">
+                src={require("../img/career.png")} alt="직업">
                 </img>
             </MainCareer>
             <MainFullTime>
@@ -116,7 +116,7 @@ function Home() {
                 </CataName>
                 <MainFullTimeList>
                     {FullTimeList.map(element => (
-                        <li>
+                        <li key={element.no}>
                             <Link
                             to={{pathname: `/${element.cata}/${element.no}`}}
                             state={{name: element.name, cata: element.cata, no: element.no}}
@@ -140,7 +140,7 @@ function Home() {
                 </CataName>
                 <MainPartTimeList>
                     {PartTimeList.map(element => (
-                        <li>
+                        <li key={element.no}>
                             <Link
                             to={{pathname: `/${element.cata}/${element.no}`}}
                             state={{name: element.name, no: element.no, }}
@@ -162,7 +162,7 @@ function Home() {
                 </CataName>
                 <HomeInternList>
                     {InternList.map(element => (
-                        <li>
+                        <li key={element.no}>
                             <Link
                             to={{pathname: `/${element.cata}/${element.no}`}}
                             state={{name: element.name, cata: element.cata, no: element.no}}

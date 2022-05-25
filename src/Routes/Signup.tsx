@@ -186,17 +186,17 @@ function Signup () {
         <>
             <Main>
                 <Img
-                src="img/injiklogo2.png"
+                src={require("../img/injiklogo2.png")}
                 >
                 </Img>
                 <MainEmail>
                     <MailHeader>번개인증</MailHeader>
                     <MainEmailButton>
-                        <MainEmailButtonImg src="img/phone.png"/>
+                        <MainEmailButtonImg src={require("../img/phone.png")}/>
                         <span>휴대폰 인증</span>
                     </MainEmailButton>
                     <MainEmailButton>
-                        <MainEmailButtonImg src="img/email.png"/>
+                        <MainEmailButtonImg src={require("../img/email.png")}/>
                         <span>이메일 인증</span>
                     </MainEmailButton>
                 </MainEmail>

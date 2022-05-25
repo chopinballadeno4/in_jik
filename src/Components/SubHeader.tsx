@@ -70,7 +70,7 @@ function SubHeader() {
     return (
         <Header>
             <Button onClick={onClick}>
-                <Img src={"img/smallpigeon.png"}/>
+                <Img src={require("../img/smallpigeon.png")}/>
             </Button>
             <MenuList>
                 <span style={{opacity: "0.2", margin: "0 10px"}}>|</span>

@@ -196,7 +196,7 @@ function MainHeader() {
                 </HeaderSearchUser>
                 <HeaderSearchinput>
                         <button onClick={reload}>
-                            <img src="img/injiklogo.png" alt="로고"></img>
+                            <img src={require("../img/injiklogo.png")} alt="로고"></img>
                         </button>
                         <HeaderSearchinputBox>
                             <input type="text" placeholder="검색어" onChange={inputChange} autoFocus/>
