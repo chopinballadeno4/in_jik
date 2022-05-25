@@ -26,7 +26,7 @@ const Img = styled.img`
     height: 50px;
 `;
 
-const MenuList = styled.ul`
+const MenuList = styled.nav`
     display: flex;
     align-items: center;
     list-style: none;
@@ -74,11 +74,13 @@ function SubHeader() {
             </Button>
             <MenuList>
                 <span style={{opacity: "0.2", margin: "0 10px"}}>|</span>
-                <Menu>Ξ 전체메뉴</Menu>
-                <Menu>대기업채용</Menu>
-                <Menu>신입/경력</Menu>
-                <Menu>고객지원</Menu>
-                <Menu>인적성·면접</Menu>
+                <ul>
+                    <Menu>Ξ 전체메뉴</Menu>
+                    <Menu>대기업채용</Menu>
+                    <Menu>신입/경력</Menu>
+                    <Menu>고객지원</Menu>
+                    <Menu>인적성·면접</Menu>
+                </ul>
             </MenuList>
             <Input placeholder="지역, 직무, 회사 키워드  🔍"/>
         </Header>
