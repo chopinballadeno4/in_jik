@@ -7,6 +7,7 @@ declare module 'styled-components' {
         impacttextcolor: string,
         normaltextcolor: string,
         hovertextcolor: string,
-        bordercolor: string, 
+        bordercolor: string,
+        mainboxborder: string,
     }
 }
