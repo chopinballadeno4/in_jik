@@ -160,6 +160,7 @@ const Maindiv = styled.div`
 
 const MainButton = styled.button`
     //background-color: ${(props) => props.theme.hovertextcolor};
+    color: #f5f6fa;
     background-color: #45aaf2;
     border: 0;
     font-size: 18px;
