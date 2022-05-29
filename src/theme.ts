@@ -9,4 +9,5 @@ export const theme: DefaultTheme = {
     hovertextcolor: "#0984e3",
     bordercolor: "#1e90ff",
     mainboxborder: "#ebebeb",
+    grayborder: "#e3e3e3",
 };

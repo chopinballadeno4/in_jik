@@ -63,8 +63,10 @@ const HeaderSearchinput = styled.div`
     //justify-content: space-between;
     width: 46vw;
     height: 104px;
-    button {
-        position: absolute;
+`;
+
+const HeaderSearchinputButton = styled.button`
+    position: absolute;
         margin-left: 0;
         padding: 0;
         background-color: transparent;
@@ -73,39 +75,43 @@ const HeaderSearchinput = styled.div`
             cursor: pointer;
             opacity: 0.5;
         }
-        img {
-            margin-left: 0px;
-            width: 170px;
-            height: 104px;
-        }
-    }
 `;
 
-const HeaderSearchinputBox = styled.form`
+const HeaderSearchinputImg = styled.img`
+    margin-left: 0px;
+    width: 170px;
+    height: 104px;
+        
+`;
+
+const HeaderSearchinputBox = styled.div`
     display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 0 auto;
-
+    width: 422px;
+    height: 40px;
+    border: 3px solid #00a8ff;
     input {
-        &:first-child {
-            width: 422px;
-            height: 40px;
-            border: 3px solid #00a8ff;
-        }
-        &:last-child {
-            margin-left: 5px;
-            margin-top: 5px;
-            background: transparent;
-            background-image: url("img/searchicon.png");
-            background-size: 100% 100%;
-            width: 35px; height: 35px;
+            width: 88%;
             border: 0;
-            &:hover{ cursor: pointer }
-            
-        }
+            &:focus {
+                outline: none;
+            }
     }
 `;
+
+const HeaderSearchinputBoxButton = styled.button`
+        border: 0;
+        width: 10%;
+        background-color: transparent;
+`;
+
+const HeaderSearchinputBoxImg = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+`;
+
+
 
 const HeaderMenu = styled.div`
     border-top: thin solid #e5e5e5;
@@ -208,13 +214,14 @@ function MainHeader() {
                     </HeaderSearchUserSign>
                 </HeaderSearchUser>
                 <HeaderSearchinput>
-                        <button onClick={reload}>
-                            <img src={require("../img/injiklogo.png")} alt="로고"></img>
-                        </button>
+                        <HeaderSearchinputButton onClick={reload}>
+                            <HeaderSearchinputImg src={require("../img/injiklogo.png")} alt="로고"></HeaderSearchinputImg>
+                        </HeaderSearchinputButton>
                         <HeaderSearchinputBox>
                             <input type="text" placeholder="검색어" onChange={inputChange} autoFocus/>
-                            {/* <input type="image" src="img/searchicon.png" name="Submit" value="Submit" alt="버튼이미지"/> */}
-                            <input type="submit" value=""/>
+                            <HeaderSearchinputBoxButton>
+                                <HeaderSearchinputBoxImg src={require("../img/searchicon.png")} alt="버튼이미지"/>
+                            </HeaderSearchinputBoxButton>
                         </HeaderSearchinputBox>
                 </HeaderSearchinput>
             </HeaderSearch>

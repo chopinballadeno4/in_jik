@@ -24,6 +24,7 @@ const Mainbg = styled.div`
     height: 100%;
     border: 1px solid #eee;
     background-color: ${(props) => props.theme.mainbgcolor};
+    box-shadow: 0 0 8px rgb(0 0 0 / 6%);
 `;
 
 const Main = styled.div`

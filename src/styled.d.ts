@@ -9,5 +9,6 @@ declare module 'styled-components' {
         hovertextcolor: string,
         bordercolor: string,
         mainboxborder: string,
+        grayborder: string,
     }
 }
