@@ -1,5 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
+import Map from "../Components/Map";
 
 const Entire = styled.div`
     display: flex;
@@ -11,11 +13,10 @@ const Entire = styled.div`
 `;
 
 const Main = styled.div`
-    width: 50%;
+    width: 40%;
     box-shadow: 0 0 8px rgb(0 0 0 / 6%);
     background-color: ${(props) => props.theme.mainbgcolor};
     margin: 50px auto;
-
 `;
 
 const MainBack = styled.section`
@@ -52,7 +53,9 @@ const MainCondition = styled.nav`
     height: 120px;
 `;
 
-const MainConditionUl = styled.ul``;
+const MainConditionUl = styled.ul`
+    margin-left: 20px;
+`;
 
 const MainConditionLi = styled.li`
     font-size: 17px;
@@ -72,7 +75,15 @@ const MainStoryStory = styled.article`
     width: 95%;
     height: 95%;
     border: 1px solid ${(props) => props.theme.grayborder};
+`;
 
+const MainWorkingArea = styled.section`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 100%;
+    
 `;
 
 const MainEmplorerInfo = styled.nav`
@@ -83,6 +94,7 @@ const MainEmplorerInfo = styled.nav`
 `;
 
 const MainEmplorerInfoUl = styled.ul`
+    margin-left: 20px;
 `;
 
 
@@ -95,7 +107,7 @@ const MainBottom = styled.footer`
 `;
 
 const MainEmplorerInfoLi = styled(MainConditionLi)`
-    font-size:14px;
+    font-size:16px;
 `;
 
 const MainBottomButton = styled.button`
@@ -109,11 +121,18 @@ const MainBottomButton = styled.button`
 `;
 
 function PostInfo() {
+    const navigate = useNavigate();
+
+    const returnClick = () => {
+        navigate("/");
+    }
+
     return (
         <Entire>
             <Main>
                 <MainBack>
-                    <MainBackButton>❌</MainBackButton>
+                    <MainBackButton
+                    onClick={returnClick}>❌</MainBackButton>
                 </MainBack>
                 <MainHeader>
                     <MainHeaderName>
@@ -141,6 +160,9 @@ function PostInfo() {
 
                     </MainStoryStory>
                 </MainStoryArea>
+                <MainWorkingArea>
+                    <Map/>
+                </MainWorkingArea>
                 <MainEmplorerInfo>
                     <MainEmplorerInfoUl>
                         <MainEmplorerInfoLi>
