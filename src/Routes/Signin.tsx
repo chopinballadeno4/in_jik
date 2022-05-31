@@ -27,14 +27,14 @@ const MainLoginManual = styled.div`
 `;
 
 const MainLoginManualh1 = styled.h1`
-    color: ${(props) => props.theme.impacttextcolor};
+    color: ${(props) => props.theme.skyblue};
     font-size: 20px;
     font-weight: bold;
     letter-spacing: -2px;
 `;
 
 const MainLoginManualh3 = styled.h3`
-    color: ${(props) => props.theme.normaltextcolor};
+    color: ${(props) => props.theme.navy};
     margin-top: 5px;
     font-size: 14px;
     opacity: 0.8;
@@ -50,7 +50,7 @@ const MainLoginHistory = styled.div`
 const MainLoginHistoryspan = styled.span`
     margin-right: 15px;
     font-size: 12px;
-    color: ${(props) => props.theme.normaltextcolor};
+    color: ${(props) => props.theme.navy};
 `;
 //━━━━━━━━━━━━━
 const MainLoginInput = styled.div`
@@ -62,23 +62,20 @@ const MainLoginInput = styled.div`
 
 const MainLoginInputid = styled.input`
     border: 1px thin #d2dae2;
-    //background-color: ${(props) => props.theme.mainbgcolor};;
     grid-row: 1 / 2;
     grid-column: 1 / 2;
 `;
 
 const MainLoginInputpw = styled.input`
-    //background-color: ${(props) => props.theme.mainbgcolor};
     border: 1px thin #d2dae2;
     grid-row: 2 / 3;
     grid-column: 1 / 2;
 `;
 
 const MainLoginInputbutton = styled.button`
-    //background-color: ${(props) => props.theme.mainbgcolor};
     border: 1px thin #d2dae2;
-    background-color: ${(props) => props.theme.bordercolor};
-    color: ${(props) => props.theme.mainbgcolor};
+    background-color: ${(props) => props.theme.skyblue};
+    color: ${(props) => props.theme.white};
     font-weight: 600;
     grid-row: 1 / 3;
     grid-column: 2 / 3;
@@ -100,14 +97,14 @@ const MainLoginAlter = styled.div`
 
 const MainLoginAltersignup = styled(Link)`
     text-decoration-line: none;
-    color: ${(props) => props.theme.impacttextcolor};
+    color: ${(props) => props.theme.skyblue};
     font-size: 13px;
     font-weight: bold;
     margin-right: 10px ;
 `;
 
 const MainLoginAlterfind = styled(Link)`
-    color: ${(props) => props.theme.normaltextcolor};
+    color: ${(props) => props.theme.navy};
     text-decoration-line: none;
     font-size: 13px;
 

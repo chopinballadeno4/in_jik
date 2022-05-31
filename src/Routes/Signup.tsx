@@ -23,7 +23,7 @@ const Header = styled.span`
     font-size: 18px;    
     letter-spacing: -2px;
     font-weight: bold;
-    color: ${(props) => props.theme.impacttextcolor};
+    color: ${(props) => props.theme.skyblue};
 `;
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -46,7 +46,7 @@ const MainEmailButton = styled.button`
     display: flex;
     align-items: center;
     border: 1px solid #a4b0be;
-    background-color: ${(props) => props.theme.mainbgcolor};
+    background-color: ${(props) => props.theme.white};
     font-size: 15px;
     font-weight: bold;
     grid-row: 2 / 4;
@@ -108,7 +108,7 @@ const MainAgreeListli = styled.li`
     span {
         font-size: 15px;
         font-weight: bold;
-        color: ${(props) => props.theme.normaltextcolor};
+        color: ${(props) => props.theme.navy};
         
     }
     span:first-child {

@@ -5,15 +5,15 @@ import MainFooter from "../Components/MainFooter";
 
 const Main = styled.main`
     width: 100%;
-    background-color: ${(props) => props.theme.mainbgcolor};
+    background-color: ${(props) => props.theme.white};
     
 `;
 
 const MainNav = styled.nav`
     width: 10%;
     min-height: 500px;
-    background-color: ${(props) => props.theme.subbgcolor};
-    border-right: 1px solid ${(props) => props.theme.grayborder}; 
+    background-color: ${(props) => props.theme.white1};
+    border-right: 1px solid ${(props) => props.theme.lightgray}; 
 `;
 
 const MainNavLi = styled.li`
@@ -24,7 +24,7 @@ const MainNavLi = styled.li`
     width: 100%;
     font-size: 18px;
     font-weight: bold;
-    border-bottom: 1px solid ${(props) => props.theme.grayborder};
+    border-bottom: 1px solid ${(props) => props.theme.lightgray};
 `;
 
 

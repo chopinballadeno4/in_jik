@@ -8,7 +8,7 @@ declare global {
 }
 
 const KakaoMap = styled.div`
-    border: 2px solid ${(props) => props.theme.grayborder};
+    border: 2px solid ${(props) => props.theme.lightgray};
     height: 400px;
     width: 30vw;
 `;

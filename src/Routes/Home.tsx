@@ -5,7 +5,6 @@ import { FullTimeList, PartTimeList, InternList } from "../sample";
 import styled from "styled-components";
 import MainHeader from "../Components/MainHeader";
 import MainFooter from "../Components/MainFooter";
-import "../Scss/_bundle.scss";
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Main 
 const Main = styled.main`
@@ -13,7 +12,6 @@ const Main = styled.main`
     height: 3000px;
     margin: 0 auto;
     margin-top: 3px;
-    //background-color: ${(props) => props.theme.mainbgcolor};
     display: grid;
     grid-template-rows: 293px 12fr 6fr 13fr;
 `;
@@ -52,14 +50,14 @@ const MainCompo = styled.div`
     margin: 20px;
     border: 1px solid #74b9ff;
     border-top: 3px solid #74b9ff;
-    background-color: ${(props) => props.theme.mainbgcolor};
+    background-color: ${(props) => props.theme.white};
     text-decoration-line: none;
 `;
 
 const Info = styled.span`
     margin-top: 10px;
     margin-left: 15px;
-    color: ${(props) => props.theme.normaltextcolor};
+    color: ${(props) => props.theme.navy};
     font-size: 14px;
 `;
 

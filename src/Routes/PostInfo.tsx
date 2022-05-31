@@ -9,13 +9,13 @@ const Entire = styled.div`
     align-items: center;
     width: 100%;
     min-height: 1000px;
-    background-color: ${(props) => props.theme.subbgcolor};
+    background-color: ${(props) => props.theme.white1};
 `;
 
 const Main = styled.div`
     width: 40%;
     box-shadow: 0 0 8px rgb(0 0 0 / 6%);
-    background-color: ${(props) => props.theme.mainbgcolor};
+    background-color: ${(props) => props.theme.white};
     margin: 50px auto;
 `;
 
@@ -43,7 +43,7 @@ const MainHeaderName = styled.span`
     padding: 0 15px;
     font-size: 35px;
     font-weight: bold;
-    border-bottom: 6px ridge ${(props) => props.theme.bordercolor};
+    border-bottom: 6px ridge ${(props) => props.theme.skyblue};
 `;
 
 const MainCondition = styled.nav`
@@ -74,7 +74,7 @@ const MainStoryArea = styled.main`
 const MainStoryStory = styled.article`
     width: 95%;
     height: 95%;
-    border: 1px solid ${(props) => props.theme.grayborder};
+    border: 1px solid ${(props) => props.theme.lightgray};
 `;
 
 const MainWorkingArea = styled.section`

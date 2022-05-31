@@ -7,7 +7,7 @@ const Header = styled.header`
     justify-content: center;
     width: 100vw;
     height: 70px;
-    border-bottom: 2px solid ${(props) => props.theme.bordercolor};
+    border-bottom: 2px solid ${(props) => props.theme.skyblue};
 `;
 
 const Button = styled.button`
@@ -37,11 +37,11 @@ const Menu = styled.li`
     font-size: 17px;
     font-weight: 600;
     float: left;
-    color: ${(props) => props.theme.normaltextcolor};
+    color: ${(props) => props.theme.navy};
     margin: 0 10px;
     &:hover {
         cursor: pointer;
-        color: ${(props) => props.theme.hovertextcolor}
+        color: ${(props) => props.theme.navy}
     }
 `;
 

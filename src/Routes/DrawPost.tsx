@@ -11,7 +11,7 @@ const Entire = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: ${(props) => props.theme.subbgcolor};
+    background-color: ${(props) => props.theme.white1};
     width: 100%;
 `;
 
@@ -23,7 +23,7 @@ const Mainbg = styled.div`
     width: 730px;
     height: 100%;
     border: 1px solid #eee;
-    background-color: ${(props) => props.theme.mainbgcolor};
+    background-color: ${(props) => props.theme.white};
     box-shadow: 0 0 8px rgb(0 0 0 / 6%);
 `;
 
@@ -56,7 +56,7 @@ const MainCataButton = styled.button`
     font-size: 15px;
     font-weight: bold;
     color: #373f57;
-    border: 1px solid ${(props) => props.theme.mainboxborder};
+    border: 1px solid ${(props) => props.theme.lightgray};
     width: 20%;
     height: 60%;
     background-color: white;
@@ -104,7 +104,7 @@ const MainPeriodDay = styled.button`
 const PeriodHeader = styled.span`
     font-size: 18px;
     font-weight: bold;
-    color: ${(props) => props.theme.normaltextcolor};
+    color: ${(props) => props.theme.navy};
     margin-bottom: 10px;
 `;
 
@@ -150,7 +150,7 @@ const CustomDatePicker = styled(DatePicker)`
     font-weight: bold;
     height: 30px;
     border: 0;
-    border-bottom: 3px solid ${(props) => props.theme.bordercolor};
+    border-bottom: 3px solid ${(props) => props.theme.skyblue};
 `;
 
 const MainStory = styled.section`
@@ -164,7 +164,6 @@ const Maindiv = styled.section`
 `;
 
 const MainButton = styled.button`
-    //background-color: ${(props) => props.theme.hovertextcolor};
     color: #f5f6fa;
     background-color: #45aaf2;
     border: 0;

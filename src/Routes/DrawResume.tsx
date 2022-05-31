@@ -6,7 +6,7 @@ const Entire = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: ${(props) => props.theme.subbgcolor};
+    background-color: ${(props) => props.theme.white1};
     width: 100%;
 `;
 
@@ -18,7 +18,7 @@ const Mainbg = styled.div`
     width: 730px;
     height: 100%;
     border: 1px solid #eee;
-    background-color: ${(props) => props.theme.mainbgcolor};
+    background-color: ${(props) => props.theme.white};
     box-shadow: 0 0 8px rgb(0 0 0 / 6%);
 `;
 
@@ -65,7 +65,7 @@ const MainBasicdivInfoelement = styled.li`
     height: 20%;
     display: flex;
     &:first-child {
-        border-bottom: 1px solid ${(props) => props.theme.mainboxborder};
+        border-bottom: 1px solid ${(props) => props.theme.lightgray};
         margin-bottom: 15px;
         span {
             font-size: 22px;
@@ -116,12 +116,12 @@ const AddInfo = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    color: ${(props) => props.theme.bordercolor};
+    color: ${(props) => props.theme.skyblue};
     font-weight: bold;
     width: 100%;
     height: 40px;
     background-color: transparent;
-    border: 1px dashed ${(props) => props.theme.bordercolor};
+    border: 1px dashed ${(props) => props.theme.skyblue};
 `;
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -160,7 +160,6 @@ const Maindiv = styled.div`
 `;
 
 const MainButton = styled.button`
-    //background-color: ${(props) => props.theme.hovertextcolor};
     color: #f5f6fa;
     background-color: #45aaf2;
     border: 0;
