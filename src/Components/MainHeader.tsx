@@ -20,7 +20,7 @@ const UlParent = styled.ul`
 const Header = styled.header`
     height: 187px;
     width: 100%;
-    min-width: 1000px;
+    min-width: 900px;
     background-color: ${(props) => props.theme.white};
     display: flex;
     flex-direction: column;
@@ -35,14 +35,13 @@ const Search = styled.div`
 `;
 
 const Sign = styled.nav`
-    width: 1000px;
+    width: 900px;
     height: 30px;
 `;
 
 const SignUl = styled(UlParent)`
     width: 100%;
-    background-color: antiquewhite;
-    width: 1000px;
+    width: 900px;
     list-style: none;
     display: flex;
     justify-content: flex-end;
@@ -62,14 +61,14 @@ const SignLi = styled.li`
 `;
 
 const SearchSection = styled.div`
-    width: 1000px;
-    background-color: aqua;
+    width: 900px;
     display: flex;
     height: 104px;
 `;
 
 const IconButton = styled.button`
-    position: absolute;
+    position: relative;
+    bottom: 10px;
     margin-left: 0;
     padding: 0;
     background-color: transparent;
@@ -89,6 +88,8 @@ const SearchBox = styled.div`
     margin: 0 auto;
     width: 422px;
     height: 40px;
+    position: relative;
+    right: 60px;
     border: 3px solid #00a8ff;
     align-self: center;
     input {
@@ -120,8 +121,7 @@ const Menu = styled.div`
 const MenuNav = styled.div`
     display: flex;
     justify-content: space-between;
-    background-color: salmon;
-    width: 1000px;
+    width: 900px;
     height: 50px;
     margin: 0 auto;
 `;
@@ -147,6 +147,7 @@ const MenuLi = styled.li`
     span {
         font-size: 17px;
         font-weight: bold;
+        color: ${(props) => props.theme.deepgray};
         &:hover {
             cursor: pointer;
             color: ${(props) => props.theme.deepskyblue};
@@ -160,7 +161,7 @@ function MainHeader() {
     const { register, watch } = useForm();
 
     const reload = () => {
-
+        navigate("/");
     }
     
     const inputChange = (event: React.FormEvent<HTMLInputElement>) => {

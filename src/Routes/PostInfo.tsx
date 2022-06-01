@@ -117,7 +117,7 @@ const MainBottomButton = styled.button`
     border: 0;
     font-size: 18px;
     color: #f5f6fa;
-    font-weight: bold;z
+    font-weight: bold;
 `;
 
 function PostInfo() {
