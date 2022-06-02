@@ -193,6 +193,16 @@ function MainHeader() {
             <Search>
                 <Sign>
                     <SignUl>
+                        { isLogined ?
+                        <SignLi>
+                            <Link
+                            to="/"
+                            style={{ textDecoration: 'none'}}
+                            >
+                                <span>로그아웃</span>
+                            </Link>
+                        </SignLi>      
+                        : 
                         <SignLi>
                             <Link
                             to="/Signin"
@@ -201,6 +211,7 @@ function MainHeader() {
                                 <span>로그인</span>
                             </Link>
                         </SignLi>
+                        }
                         <SignLi>
                             <span style={{opacity: 0.2}}>│</span>
                         </SignLi>

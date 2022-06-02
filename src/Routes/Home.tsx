@@ -36,10 +36,54 @@ const MainHeaderName = styled.span`
     font-weight: 700;
 `;
 
-const MainCareer = styled.div`
-    margin: 20px;
+const SubMain = styled.div`
+    height: 300px;
+    width: 100%;
     display: flex;
-    justify-content: center ;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(${(props) => props.theme.skyblue} 50%, ${(props) => props.theme.white} 50%);
+`;
+
+const SubMainImg = styled.img`
+    position: relative;
+    top: -100px;
+    height: 450px;
+    object-fit: scale-down;
+`;
+
+const SubMainMent = styled.img`
+    width: 500px;
+    position: relative;
+    top: -220px;
+`;
+
+const PersonInfo = styled.div`
+    margin-top: 10px;
+    width: 600px;
+    height: 200px;
+    padding: 10px;
+    display: grid;
+    border: 1px solid ${(props) => props.theme.lightgray};
+    background-color: ${(props) => props.theme.white};
+    box-sizing: border-box;
+    box-shadow: ${(props) => props.theme.shadow};
+`;
+
+const Time = styled.div`
+    display: flex;
+    padding: 2px;
+`;
+
+const WorkButton = styled.button`
+    width: 80px;
+    height: 40px;
+    background-color: #a4b0be;
+    font-weight: bold;
+    border: 1px solid ${(props) => props.theme.lightgray};
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const MainCompo = styled.div`
@@ -97,17 +141,44 @@ const HomeInternList = styled.ul`
 `;
 
 
-function Home() {    
+function Home() {
+    const [isLogined, setIsLogined] = useState(true);
+    let today = new Date();
+    let year = today.getFullYear(); // 년도
+    let month = today.getMonth() + 1;  // 월
+    let date = today.getDate();  // 날짜
+    let day;  // 요일
+    let hours;  // 시
+    let minutes;  // 분
+
+    const WorkStart = () => {
+        day = today.getDay();
+        hours = today.getHours();
+        minutes = today.getMinutes();
+    }
+
+    const WorkEnd = () => {
+        day = today.getDay();
+        hours = today.getHours();
+        minutes = today.getMinutes();
+        console.log(typeof(day));
+        console.log(typeof(hours));
+        console.log(typeof(minutes));
+    }
 
     return (
         <>
         <MainHeader/>
+        <SubMain>
+            <SubMainImg
+            src={require("../img/career2.png")} alt="직업">
+            </SubMainImg>
+            <SubMainMent
+            src={require("../img/mention.png")} alt="멘트"
+            >
+            </SubMainMent>
+        </SubMain>
         <Main>
-            <MainCareer>
-                <img
-                src={require("../img/career.png")} alt="직업">
-                </img>
-            </MainCareer>
             <MainFullTime>
                 <CataName>
                     <MainHeaderName>채용</MainHeaderName>
