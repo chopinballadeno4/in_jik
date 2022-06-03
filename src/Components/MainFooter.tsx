@@ -23,7 +23,7 @@ const Footer = styled.footer`
 
 const Info = styled.div`
     height: 50px;
-    border-top: 3px solid ${(props) => props.theme.skyblue};
+    border-top: 2px solid ${(props) => props.theme.skyblue};
     border-Bottom: thin solid ${(props) => props.theme.lightgray};
 `;
 

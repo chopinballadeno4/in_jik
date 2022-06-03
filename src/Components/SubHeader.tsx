@@ -5,7 +5,8 @@ import { useNavigate } from "react-router";
 const Header = styled.header`
     display: flex;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
+    min-width: 900px;
     height: 70px;
     border-bottom: 2px solid ${(props) => props.theme.skyblue};
 `;
@@ -41,7 +42,7 @@ const Menu = styled.li`
     margin: 0 10px;
     &:hover {
         cursor: pointer;
-        color: ${(props) => props.theme.navy}
+        color: ${(props) => props.theme.deepskyblue};
     }
 `;
 
@@ -50,10 +51,10 @@ const Input = styled.input`
     margin-left: 50px;
     height: 40px;
     width: 250px;
-    border: 2px solid #0984e3; 
+    border: 2px solid ${(props) => props.theme.deepskyblue}; 
     border-radius: 15px;
     ::placeholder {
-        color: #0984e3;
+        color: ${(props) => props.theme.deepskyblue};
         font-weight: 600;
         text-indent: 40px;
     }

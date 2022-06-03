@@ -9,17 +9,18 @@ import MainFooter from "../Components/MainFooter";
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Main 
 const Main = styled.main`
     width: 70%;
-    height: 3000px;
+    /* height: 3300px; */
+    min-width: 1300px;
     margin: 0 auto;
     margin-top: 3px;
     display: grid;
-    grid-template-rows: 293px 12fr 6fr 13fr;
 `;
 
 const CataName = styled.header`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-bottom: 1px solid ${(props) => props.theme.lightgray};
     height: 50px;
 `;
 
@@ -36,10 +37,26 @@ const MainHeaderName = styled.span`
     font-weight: 700;
 `;
 
-const MainCareer = styled.div`
-    margin: 20px;
+const SubMain = styled.div`
+    height: 300px;
+    width: 100%;
     display: flex;
-    justify-content: center ;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(${(props) => props.theme.skyblue} 50%, ${(props) => props.theme.white} 50%);
+`;
+
+const SubMainImg = styled.img`
+    position: relative;
+    top: -100px;
+    height: 450px;
+    object-fit: scale-down;
+`;
+
+const SubMainMent = styled.img`
+    width: 500px;
+    position: relative;
+    top: -220px;
 `;
 
 const MainCompo = styled.div`
@@ -69,6 +86,7 @@ const Brand = styled(Info)`
 
 //━━━━━━━━━
 const MainFullTime = styled.section`
+    
 
 `;
 
@@ -94,20 +112,26 @@ const HomeInternList = styled.ul`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 200px;
 `;
 
 
-function Home() {    
+function Home() {
+    const [isLogined, setIsLogined] = useState(true);
 
     return (
         <>
         <MainHeader/>
+        <SubMain>
+            <SubMainImg
+            src={require("../img/career2.png")} alt="직업">
+            </SubMainImg>
+            <SubMainMent
+            src={require("../img/mention.png")} alt="멘트"
+            >
+            </SubMainMent>
+        </SubMain>
         <Main>
-            <MainCareer>
-                <img
-                src={require("../img/career.png")} alt="직업">
-                </img>
-            </MainCareer>
             <MainFullTime>
                 <CataName>
                     <MainHeaderName>채용</MainHeaderName>

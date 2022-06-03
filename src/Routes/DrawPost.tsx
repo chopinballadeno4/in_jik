@@ -3,9 +3,7 @@ import SubHeader from "../Components/SubHeader";
 import MainFooter from "../Components/MainFooter";
 import styled from "styled-components";
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
-import { findByLabelText } from "@testing-library/react";
 
 const Entire = styled.div`
     display: flex;
