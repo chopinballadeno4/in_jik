@@ -6,6 +6,7 @@ import PostInfo from "./Routes/PostInfo";
 import DrawResume from "./Routes/DrawResume";
 import DrawPost from "./Routes/DrawPost";
 import SearchInfo from "./Routes/SearchInfo";
+import Contract from "./Routes/Contract";
 
 const AppRouter = () => {
     return (
@@ -18,6 +19,7 @@ const AppRouter = () => {
                 <Route path="/DrawPost" element={<DrawPost/>}></Route>
                 <Route path="/:cata/:no" element={<PostInfo/>}></Route>
                 <Route path="/:brandname" element={<SearchInfo/>}></Route>
+                <Route path="/:cata/:no/Contract" element={<Contract/>}></Route>
             </Routes>        
         </Router>
     );

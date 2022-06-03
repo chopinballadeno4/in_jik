@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 import Map from "../Components/Map";
@@ -118,13 +119,22 @@ const MainBottomButton = styled.button`
     font-size: 18px;
     color: #f5f6fa;
     font-weight: bold;
+    &:hover{
+        cursor: pointer;
+    }
 `;
 
 function PostInfo() {
     const navigate = useNavigate();
+    const params = useParams();
+    console.log(params);
 
     const returnClick = () => {
         navigate("/");
+    }
+
+    const goContract = () => {
+        navigate(`/${params.cata}/${params.no}/Contract`);
     }
 
     return (
@@ -177,7 +187,8 @@ function PostInfo() {
                     </MainEmplorerInfoUl>
                 </MainEmplorerInfo>
                 <MainBottom>
-                    <MainBottomButton>
+                    <MainBottomButton
+                    onClick={goContract}>
                         지원
                     </MainBottomButton>
                 </MainBottom>

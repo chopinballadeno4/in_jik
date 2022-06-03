@@ -9,17 +9,18 @@ import MainFooter from "../Components/MainFooter";
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Main 
 const Main = styled.main`
     width: 70%;
-    height: 3000px;
+    /* height: 3300px; */
+    min-width: 1300px;
     margin: 0 auto;
     margin-top: 3px;
     display: grid;
-    grid-template-rows: 293px 12fr 6fr 13fr;
 `;
 
 const CataName = styled.header`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-bottom: 1px solid ${(props) => props.theme.lightgray};
     height: 50px;
 `;
 
@@ -58,34 +59,6 @@ const SubMainMent = styled.img`
     top: -220px;
 `;
 
-const PersonInfo = styled.div`
-    margin-top: 10px;
-    width: 600px;
-    height: 200px;
-    padding: 10px;
-    display: grid;
-    border: 1px solid ${(props) => props.theme.lightgray};
-    background-color: ${(props) => props.theme.white};
-    box-sizing: border-box;
-    box-shadow: ${(props) => props.theme.shadow};
-`;
-
-const Time = styled.div`
-    display: flex;
-    padding: 2px;
-`;
-
-const WorkButton = styled.button`
-    width: 80px;
-    height: 40px;
-    background-color: #a4b0be;
-    font-weight: bold;
-    border: 1px solid ${(props) => props.theme.lightgray};
-    &:hover {
-        cursor: pointer;
-    }
-`;
-
 const MainCompo = styled.div`
     display: flex;
     flex-direction: column;
@@ -113,6 +86,7 @@ const Brand = styled(Info)`
 
 //━━━━━━━━━
 const MainFullTime = styled.section`
+    
 
 `;
 
@@ -138,33 +112,12 @@ const HomeInternList = styled.ul`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 200px;
 `;
 
 
 function Home() {
     const [isLogined, setIsLogined] = useState(true);
-    let today = new Date();
-    let year = today.getFullYear(); // 년도
-    let month = today.getMonth() + 1;  // 월
-    let date = today.getDate();  // 날짜
-    let day;  // 요일
-    let hours;  // 시
-    let minutes;  // 분
-
-    const WorkStart = () => {
-        day = today.getDay();
-        hours = today.getHours();
-        minutes = today.getMinutes();
-    }
-
-    const WorkEnd = () => {
-        day = today.getDay();
-        hours = today.getHours();
-        minutes = today.getMinutes();
-        console.log(typeof(day));
-        console.log(typeof(hours));
-        console.log(typeof(minutes));
-    }
 
     return (
         <>

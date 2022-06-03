@@ -230,7 +230,8 @@ function MainHeader() {
                             <IconImg src={require("../img/injiklogo.png")} alt="로고"></IconImg>
                         </IconButton>
                         <SearchBox>
-                            <input type="text" placeholder="검색어" onChange={inputChange} autoFocus/>
+                            <input type="text" placeholder="&nbsp;&nbsp;검색어" onChange={inputChange} autoFocus
+                            style={{marginLeft: "10px"}}/>
                             <SearchButton>
                                 <SearchIcon src={require("../img/searchicon.png")} alt="버튼이미지"/>
                             </SearchButton>
