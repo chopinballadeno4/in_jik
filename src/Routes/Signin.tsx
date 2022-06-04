@@ -10,70 +10,73 @@ const Main = styled.main`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 70vh;
+    width: 100%;
+    height: 635px;
+    min-width: 300px;
+    min-height: 200px;
 `;
 
-const MainLogin = styled.div`
+const Login = styled.div`
     display: flex;
     flex-direction: column;
-    width: 15vw;
-    height: 30vh;
+    width: 16%;
+    min-width: 300px;
 `;
 
-const MainLoginManual = styled.div`
-    height: 6vh;
+const Header = styled.div`
     border-bottom: 1px solid #d2dae2;
+    margin-bottom: 20px;
 `;
 
-const MainLoginManualh1 = styled.h1`
-    color: ${(props) => props.theme.skyblue};
+const Headerh1 = styled.h1`
+    color: ${(props) => props.theme.gray};
     font-size: 20px;
     font-weight: bold;
     letter-spacing: -2px;
 `;
 
-const MainLoginManualh3 = styled.h3`
+const Headerh3 = styled.h3`
     color: ${(props) => props.theme.navy};
     margin-top: 5px;
     font-size: 14px;
     opacity: 0.8;
     letter-spacing: -1px;
+    margin-bottom: 10px;
 `;
 //━━━━━━━━━━━━━
-const MainLoginHistory = styled.div`
+const LoginLog = styled.div`
     display: flex;
     align-items: center;
-    height: 3vh;
+    height: 30px;
 `;
 
-const MainLoginHistoryspan = styled.span`
+const LoginLogspan = styled.span`
     margin-right: 15px;
     font-size: 12px;
     color: ${(props) => props.theme.navy};
 `;
 //━━━━━━━━━━━━━
-const MainLoginInput = styled.div`
+const LoginInput = styled.div`
     display: grid;
     grid-template-columns: 3fr 1fr ;
     grid-template-rows: repeat(2,1fr) ;
-    height: 6vh;
+    height: 65px;
 `;
 
-const MainLoginInputid = styled.input`
-    border: 1px thin #d2dae2;
+const LoginInputid = styled.input`
+    border: 1px solid #4b4b4b;
     grid-row: 1 / 2;
     grid-column: 1 / 2;
 `;
 
-const MainLoginInputpw = styled.input`
-    border: 1px thin #d2dae2;
+const LoginInputpw = styled.input`
+    border: 1px solid #4b4b4b;
     grid-row: 2 / 3;
     grid-column: 1 / 2;
 `;
 
-const MainLoginInputbutton = styled.button`
-    border: 1px thin #d2dae2;
+const LoginInputbutton = styled.button`
+    border: 2px solid #4b4b4b;
     background-color: ${(props) => props.theme.skyblue};
     color: ${(props) => props.theme.white};
     font-weight: 600;
@@ -85,26 +88,26 @@ const MainLoginInputbutton = styled.button`
 `;
 
 //━━━━━━━━━━━━━
-const MainLoginAlter = styled.div`
+const LoginAlter = styled.div`
     display: flex;
     align-items: center;
-    height: 3vh;
+    height: 40px;
     span {
         opacity: 0.5;
         margin-right: 10px;
     }
 `;
 
-const MainLoginAltersignup = styled(Link)`
+const LoginAltersignup = styled(Link)`
     text-decoration-line: none;
-    color: ${(props) => props.theme.skyblue};
+    color: ${(props) => props.theme.gray};
     font-size: 13px;
     font-weight: bold;
     margin-right: 10px ;
 `;
 
-const MainLoginAlterfind = styled(Link)`
-    color: ${(props) => props.theme.navy};
+const LoginAlterfind = styled(Link)`
+    color: ${(props) => props.theme.gray};
     text-decoration-line: none;
     font-size: 13px;
 
@@ -136,34 +139,34 @@ function Signin() {
         <>
         <SubHeader/>
         <Main>
-            <MainLogin>
-                <MainLoginManual>
-                    <MainLoginManualh1>인직입니다. 환영합니다🕊️</MainLoginManualh1>
-                    <MainLoginManualh3>걱정 없는 구인/구직 사이트입니다.</MainLoginManualh3>
-                </MainLoginManual>
-                <MainLoginHistory>
+            <Login>
+                <Header>
+                    <Headerh1>인직입니다. 환영합니다.</Headerh1>
+                    <Headerh3>믿고 사용할 수 있는 구인/구직 사이트입니다.</Headerh3>
+                </Header>
+                <LoginLog>
                     <input type="checkbox"/>
-                    <MainLoginHistoryspan>로그인 유지</MainLoginHistoryspan>
+                    <LoginLogspan>로그인 유지</LoginLogspan>
                     <input type="checkbox"/>
-                    <MainLoginHistoryspan>아이디 저장</MainLoginHistoryspan>
-                </MainLoginHistory>
-                <MainLoginInput>
-                    <MainLoginInputid
-                    placeholder="아이디"></MainLoginInputid>
-                    <MainLoginInputpw
-                    placeholder="비밀번호"></MainLoginInputpw>
-                    <MainLoginInputbutton>로그인</MainLoginInputbutton>
-                </MainLoginInput>
-                <MainLoginAlter>
-                    <MainLoginAltersignup
+                    <LoginLogspan>아이디 저장</LoginLogspan>
+                </LoginLog>
+                <LoginInput>
+                    <LoginInputid
+                    placeholder="아이디"></LoginInputid>
+                    <LoginInputpw
+                    placeholder="비밀번호"></LoginInputpw>
+                    <LoginInputbutton>로그인</LoginInputbutton>
+                </LoginInput>
+                <LoginAlter>
+                    <LoginAltersignup
                     to="/Signup"
-                    >회원가입</MainLoginAltersignup>
+                    >회원가입</LoginAltersignup>
                     <span>|</span>
-                    <MainLoginAlterfind
+                    <LoginAlterfind
                     to="/"
-                    >아이디/비밀번호 찾기</MainLoginAlterfind>
-                </MainLoginAlter>
-            </MainLogin>
+                    >아이디/비밀번호 찾기</LoginAlterfind>
+                </LoginAlter>
+            </Login>
         </Main>
         <MainFooter/>
         </>

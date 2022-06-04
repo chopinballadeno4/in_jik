@@ -20,6 +20,12 @@ interface IInternList {
     period: string,
 }
 
+interface IResume {
+    id: number,
+    title: string,
+    name: string,
+}
+
 export const FullTimeList : IFullTimeList [] = [
     {
         name: "GMARKET",
@@ -276,5 +282,23 @@ export const InternList : IInternList [] = [
         cata: "Intern",
         no: 30,
         period: "2022 / 7~9",
+    },
+];
+
+export const ResumeList : IResume [] = [
+    {
+        id: 1,
+        title: "라인 갈래 응애",
+        name: "김해람"
+    },
+    {
+        id: 2,
+        title: "라인 갈래 응애",
+        name: "김해람"
+    },
+    {
+        id: 3,
+        title: "네이버 갈래 응애",
+        name: "배성민"
     },
 ];

@@ -133,8 +133,8 @@ function PostInfo() {
         navigate("/");
     }
 
-    const goContract = () => {
-        navigate(`/${params.cata}/${params.no}/Contract`);
+    const ApplyClick = () => {
+        alert("지원되었습니다.");
     }
 
     return (
@@ -187,8 +187,7 @@ function PostInfo() {
                     </MainEmplorerInfoUl>
                 </MainEmplorerInfo>
                 <MainBottom>
-                    <MainBottomButton
-                    onClick={goContract}>
+                    <MainBottomButton onClick={ApplyClick}>
                         지원
                     </MainBottomButton>
                 </MainBottom>

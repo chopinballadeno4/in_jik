@@ -215,6 +215,16 @@ function MainHeader() {
                         <SignLi>
                             <span style={{opacity: 0.2}}>│</span>
                         </SignLi>
+                        { isLogined ?
+                        <SignLi>
+                            <Link
+                            to="/MyPage"
+                            style={{ textDecoration: 'none'}}
+                            >
+                                <span>마이페이지</span>
+                            </Link>
+                        </SignLi>
+                        :
                         <SignLi>
                             <Link
                             to="/Signup"
@@ -223,6 +233,7 @@ function MainHeader() {
                                 <span>회원가입</span>
                             </Link>
                         </SignLi>
+                        }
                     </SignUl>
                 </Sign>
                 <SearchSection>
