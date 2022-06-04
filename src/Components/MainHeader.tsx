@@ -159,6 +159,34 @@ function MainHeader() {
     const navigate = useNavigate();
     const [isLogined, setIsLogined] = useState(true);
     const { register, watch } = useForm();
+    const [start, setStart] = useState([0,0,0,0,0,0]);
+    const [end, setEnd] = useState([0,0,0,0,0,0]);
+    const [isStart, setIsStart] = useState(false);
+    const [isEnd, setIsEnd] = useState(false)
+
+    const WorkStart = () => {
+        let today = new Date();
+        let year = today.getFullYear(); // 년도
+        let month = today.getMonth() + 1;  // 월
+        let day = today.getDay();  // 요일
+        let hours = today.getHours(); // 시
+        let minutes = today.getMinutes();  // 분
+        let seconds = today.getSeconds();  // 초
+        setStart([year,month,day,hours,minutes,seconds]);
+        setIsStart((prev) => !prev);
+      }
+    
+      const WorkEnd = () => {
+        let today = new Date();
+        let year = today.getFullYear(); // 년도
+        let month = today.getMonth() + 1;  // 월
+        let day = today.getDay();  // 요일
+        let hours = today.getHours(); // 시
+        let minutes = today.getMinutes();  // 분
+        let seconds = today.getSeconds();  // 초
+        setEnd([year,month,day,hours,minutes,seconds]);
+        setIsEnd((prev) => !prev);
+      }
 
     const reload = () => {
         navigate("/");
@@ -279,6 +307,30 @@ function MainHeader() {
                                 <span>📢공고등록</span>
                             </button>
                         </MenuLi>
+                        { isLogined ?  
+                        <>
+                        <MenuLi>
+                            <button onClick={WorkStart}>
+                                <span
+                                style={{color: "#bdc3c7"}}>출근</span>
+                                {isStart ? 
+                                <span 
+                                style={{color: "black"}}>중</span> : <></> 
+                                }
+                            </button>
+                        </MenuLi>
+                        <MenuLi>
+                            <button onClick={WorkEnd}>
+                                <span
+                                style={{color: "#bdc3c7"}}>퇴근</span>
+                                {isEnd ?
+                                <span 
+                                style={{color: "black"}}>완료</span> : <></> 
+                                }
+                            </button>
+                        </MenuLi>
+                        </>
+                        : <></>}
                     </MenuUl>
                 </MenuNav>
             </Menu>
