@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import MainHeader from "../Components/MainHeader";
 import MainFooter from "../Components/MainFooter";
 import styled from "styled-components";
 import { ResumeList } from "../sample";
 import { Link } from "react-router-dom";
+import Apply from "../Components/Apply";
+import ApplyInfo from "../Components/AppyInfo";
+
+const Entire = styled.div`
+    width: 100%;
+`;
 
 const Main = styled.main`
     display: flex;
     justify-content: center;
     min-height: 800px;
+    min-width: 900px;
     width: 100%;  
     grid-template-columns: 1fr 3fr;
-    margin: 40px 20px;
+    margin: 40px 0;
 `;
 
 const Menu = styled.nav`
@@ -48,11 +55,12 @@ const SubTitle = styled.section`
     padding: 0 20px 10px 20px;
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid #596275;
+    border-bottom: 2px solid #718093;
 
     span {
         font-size: 16px;
         font-weight: bold;
+        color: #2f3542;
     }
 `;
 
@@ -61,19 +69,20 @@ const SortItem = styled.button`
     border: 0;
     
     span {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 540;
     }
 `;
 
-const Item = styled(Link)`
+const Item = styled.button`
+    width: 95%;
     display: flex;
     justify-content: space-between;
     padding: 18px;
     margin: 10px 15px;
     box-shadow: 0 0 8px rgb(0 0 0 / 6%);
     background-color: ${(props) => props.theme.white};
-    border-bottom: 1px solid ${(props) => props.theme.lightgray};
+    border: 1px solid ${(props) => props.theme.lightgray};
     border-radius: 10px;
 
     span {
@@ -83,50 +92,80 @@ const Item = styled(Link)`
     }
 `;
 
+
+const Title = styled.h3`
+  text-align: center;
+`;
+
+const DialogButton = styled.button`
+  width: 160px;
+  height: 48px;
+  background-color: blueviolet;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 400;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+`;
+
 function MyPage() {
+    const [isOpenModal, setOpenModal] = useState<boolean>(false);
+
+    const onClickToggleModal = useCallback(() => {
+      setOpenModal(!isOpenModal);
+    }, [isOpenModal]);
+
     return (
-        <>
-        <MainHeader/>
-        <Main>
-            <Menu>
-                <ul>
-                    <MenuLi
-                    style={{
-                        backgroundColor: "#0097e6",
-                        color: "f7f7f7"
-                        }}><span>지원목록</span></MenuLi>
-                    <MenuLi><span>개인설정</span></MenuLi>
-                    <MenuLi><span>쪽지함</span></MenuLi>
-                </ul>
-            </Menu>
-            <List>
-                <Sort>
-                    <SortItem>
-                        <span>⇅ 정렬기준</span>
-                    </SortItem>
-                </Sort>
-                <SubTitle>
-                    <span>no</span>
-                    <span>이름</span>
-                </SubTitle>
-                <ul>
-                    {ResumeList.map(element =>
-                    <Item
-                    to="/"
-                    style={{textDecorationLine: "none"}}>
-                        <span
+        <Entire>
+            <MainHeader/>
+            <Main>
+                {isOpenModal && ( 
+                    <Apply onClickToggleApplyInfo={onClickToggleModal}>
+                        <ApplyInfo/>
+                    </Apply>
+                )}
+                <Menu>
+                    <ul>
+                        <MenuLi
                         style={{
-                            color: "black",
-                        }}>{element.id}</span>
-                        <span>{element.title}</span>
-                        <span>{element.name}</span>
-                    </Item>
-                    )}
-                </ul>
-            </List>
-        </Main>
-        <MainFooter/>
-        </>
+                            backgroundColor: "#0097e6",
+                            color: "f7f7f7"
+                            }}><span>지원목록</span></MenuLi>
+                        <MenuLi><span>개인설정</span></MenuLi>
+                        <MenuLi><span>쪽지함</span></MenuLi>
+                    </ul>
+                </Menu>
+                <List>
+                    <Sort>
+                        <SortItem>
+                            <span>⇅ 정렬기준</span>
+                        </SortItem>
+                    </Sort>
+                    <SubTitle>
+                        <span>no</span>
+                        <span>이름</span>
+                    </SubTitle>
+                    <ul>
+                        {ResumeList.map(element => 
+                        <Item onClick={onClickToggleModal}>
+                            <span
+                            style={{
+                                color: "black",
+                            }}>{element.id}</span>
+                            <span>{element.title}</span>
+                            <span>{element.name}</span>
+                        </Item>
+                        )}
+                    </ul>
+                </List>
+            </Main> 
+            <MainFooter/>
+        </Entire>
     );
 }
 
