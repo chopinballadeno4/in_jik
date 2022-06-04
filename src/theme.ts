@@ -11,5 +11,5 @@ export const theme: DefaultTheme = {
     lightgray: "#e3e3e3",
     gray: "#444",
     deepgray: "#222222",
-    shadow: "box-shadow: 0 0 8px rgb(0 0 0 / 6%)",
+    shadow: "0 0 8px rgb(0 0 0 / 6%)",
 };
