@@ -2,12 +2,14 @@
 // import MainFooter from "../Components/MainFooter";
 import styled from "styled-components";
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const Main = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 20vw;
+    min-width: 450px;
     height: 100%;
     margin: 0 auto;
 `;
@@ -23,7 +25,7 @@ const Header = styled.span`
     font-size: 18px;    
     letter-spacing: -2px;
     font-weight: bold;
-    color: ${(props) => props.theme.skyblue};
+    color: ${(props) => props.theme.deepgray};
 `;
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -42,7 +44,7 @@ const MailHeader = styled(Header)`
     grid-column: 1 / 3;
 `;
 
-const MainEmailButton = styled.button`
+const Button = styled.button`
     display: flex;
     align-items: center;
     border: 1px solid #a4b0be;
@@ -53,9 +55,12 @@ const MainEmailButton = styled.button`
     span {
         margin-left: 10px;
     }
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
-const MainEmailButtonImg = styled.img`
+const ButtonImg = styled.img`
     object-fit: scale-down;
     height: 40px;
 `;
@@ -65,8 +70,8 @@ const MainPW = styled.div`
     margin-top: 30px;
     width: 400px;
     display: grid;
-    grid-template-rows: 1fr 2fr 2fr;
-    height: 130px;  
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 150px;  
 `;
 
 const PWHeader = styled(Header)`
@@ -79,68 +84,6 @@ const MainPWInput = styled.input`
 `; 
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-const MainAgree = styled.div`
-    margin-top: 30px;
-    width: 400px;
-    display: grid;
-    grid-template-rows: 1fr 5fr;
-    height: 300px;
-`;
-
-const AgreeHeader = styled(Header)`
-    margin-bottom: 10px;
-    margin-top: 15px;
-    grid-row: 1 / 2;
-`;
-
-const MainAgreeList = styled.ul`
-    background-color: #f4f5f7;
-    display: grid;
-    grid-template-rows: repeat(4,1fr);
-    grid-row: 2 / 3;
-    border: 1px solid #a4b0be;
-`;
-
-const MainAgreeListli = styled.li`
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
-    span {
-        font-size: 15px;
-        font-weight: bold;
-        color: ${(props) => props.theme.navy};
-        
-    }
-    span:first-child {
-        color: black;
-    }
-`;
-
-const MainAgreeListliButton = styled.button`
-    position: absolute;
-    width: 33px;
-    height: 33px;
-    margin-left: 330px;
-    border-radius: 100px;
-    box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 30%);
-    transition-duration: 0.2s;
-    &:active {
-        background-color: #2d98da;
-        box-shadow: none;
-    }
-    &:hover {
-        cursor: pointer;
-    }
-`;
-
-const MainAgreeListliButtonCli = styled.button`
-    position: absolute;
-    width: 33px;
-    height: 33px;
-    margin-left: 330px;
-    border-radius: 100px;
-    background-color: #2d98da;
-`;
 
 const MainFin = styled.div`
     width: 400px;
@@ -160,28 +103,48 @@ const MainFinButton = styled.button`
     letter-spacing: -1px;
     font-weight: bold;
     box-shadow: 0 9px 25px rgb(0 0 0 / 40%);
+    &:hover {
+        cursor: pointer;
+    }
+`;
+
+const Info = styled.div`
+    margin-top: 30px;
+    width: 400px;
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    height: 300px; 
+`;
+
+const InfoItem = styled.input`
+    
 `;
 
 
 function Signup () {
-    const [isClicked0, setIsClicked0] = useState<boolean>(false);
-    const [isClicked1, setIsClicked1] = useState<boolean>(false); 
-    const [isClicked2, setIsClicked2] = useState<boolean>(false); 
-    const [isClicked3, setIsClicked3] = useState<boolean>(false); 
+    const [ isEmployer, setIsEmployer ] = useState(false);
+    const [ isEmployee, setIsEmployee ] = useState(false);
+    const { register, handleSubmit, formState } = useForm(); 
 
-
-    const ButtonClick = (event : React.MouseEvent<HTMLButtonElement>, select: number) => {
-        if(select===0) {
-            setIsClicked0(!isClicked0);
-        } else if(select===1) {
-            setIsClicked1(!isClicked1);
-        } else if(select===2) {
-            setIsClicked2(!isClicked2);
-        } else {
-            setIsClicked3(!isClicked3);
-        }
+    const EmployeeClick = () => {
+        setIsEmployee((prev) => !prev);
+        if(isEmployer) {
+            setIsEmployer((prev) => !prev);
+        }   
     }
-    
+
+    const EmployerClick = () => {
+        setIsEmployer((prev) => !prev);
+        if(isEmployee) {
+            setIsEmployee((prev) => !prev);
+        }   
+    }
+
+    const onValid = (data: any) => {
+        console.log(data);
+        console.log(handleSubmit);
+    };
+
     return(
         <>
             <Main>
@@ -190,70 +153,75 @@ function Signup () {
                 >
                 </Img>
                 <MainEmail>
-                    <MailHeader>번개인증</MailHeader>
-                    <MainEmailButton>
-                        <MainEmailButtonImg src={require("../img/phone.png")}/>
-                        <span>휴대폰 인증</span>
-                    </MainEmailButton>
-                    <MainEmailButton>
-                        <MainEmailButtonImg src={require("../img/email.png")}/>
-                        <span>이메일 인증</span>
-                    </MainEmailButton>
+                    <MailHeader>가입구분</MailHeader>
+                    {isEmployee ? 
+                    <Button
+                    style={{backgroundColor: "#3498db"
+                    ,color: "white"}}
+                    onClick={EmployeeClick}>
+                        <span>구직자 (Employee)</span>
+                    </Button>
+                    :
+                    <Button
+                    onClick={EmployeeClick}>
+                        <span>구직자 (Employee)</span>
+                    </Button>
+                    }
+                    {isEmployer ? 
+                    <Button
+                    style={{backgroundColor: "#3498db"
+                    ,color: "white"}}
+                    onClick={EmployerClick}>
+                        <span>구인자 (Employer)</span>
+                    </Button>
+                    :
+                    <Button
+                    onClick={EmployerClick}>
+                        <span>구인자 (Employer)</span>
+                    </Button>
+                    }
                 </MainEmail>
+                <form onSubmit={handleSubmit(onValid)}>
+                <Info>
+                    <PWHeader>정보입력</PWHeader>
+                    <InfoItem
+                    {...register("name", {required: true})}
+                    placeholder="  이름">
+                    </InfoItem>
+                    <InfoItem
+                    {...register("birth", {required: true})}
+                    placeholder="  생년월일">
+                    </InfoItem>
+                    <InfoItem
+                    {...register("address", {required: true})}
+                    placeholder="  주소">
+                    </InfoItem>
+                    <InfoItem
+                    {...register("number", {required: true})}
+                    placeholder="  전화번호">
+                    </InfoItem>
+                    <InfoItem
+                    {...register("email", {required: true})}
+                    placeholder="  이메일">
+                    </InfoItem>
+                </Info>
                 <MainPW>
                     <PWHeader>비밀번호&nbsp;/&nbsp;확인</PWHeader>
                     <MainPWInput
+                    {...register("pw", {required: true})}
+                    type="password"
                     placeholder="* 비밀번호">
                     </MainPWInput>
                     <MainPWInput
+                    {...register("pwcheck", {required: true})}
+                    type="password"
                     placeholder="* 비밀번호 확인">
                     </MainPWInput>
                 </MainPW>
-                <MainAgree>
-                    <AgreeHeader>약관 동의</AgreeHeader>
-                    <MainAgreeList>
-                        <MainAgreeListli>
-                            <span
-                            style={{color: "red", fontWeight: "bold"}}>(필수)&nbsp;</span>
-                            <span>개인회원 약관에 동의</span>
-                            {isClicked0 ? 
-                            <MainAgreeListliButtonCli
-                            onClick={e => ButtonClick(e,0)}>✔️</MainAgreeListliButtonCli>
-                            : <MainAgreeListliButton
-                            onClick={e => ButtonClick(e,0)}>✔️</MainAgreeListliButton>}
-                        </MainAgreeListli>
-                        <MainAgreeListli>
-                            <span>(선택)&nbsp;</span> 
-                            <span>개인정보 수집 및 이용에 동의</span>
-                            {isClicked1 ? 
-                            <MainAgreeListliButtonCli
-                            onClick={e => ButtonClick(e,1)}>✔️</MainAgreeListliButtonCli>
-                            : <MainAgreeListliButton
-                            onClick={e => ButtonClick(e,1)}>✔️</MainAgreeListliButton>}
-                        </MainAgreeListli>
-                        <MainAgreeListli>
-                            <span>(선택)&nbsp;</span>  
-                            <span>마케팅 정보 수신 동의 - 이메일</span>
-                            {isClicked2 ? 
-                            <MainAgreeListliButtonCli
-                            onClick={e => ButtonClick(e,2)}>✔️</MainAgreeListliButtonCli>
-                            : <MainAgreeListliButton
-                            onClick={e => ButtonClick(e,2)}>✔️</MainAgreeListliButton>}
-                        </MainAgreeListli>
-                        <MainAgreeListli>
-                            <span>(선택)&nbsp;</span>
-                            <span>마케팅 정보 수신 동의 - SMS/MMS</span>
-                            {isClicked3 ? 
-                            <MainAgreeListliButtonCli
-                            onClick={e => ButtonClick(e,3)}>✔️</MainAgreeListliButtonCli>
-                            : <MainAgreeListliButton
-                            onClick={e => ButtonClick(e,3)}>✔️</MainAgreeListliButton>}
-                        </MainAgreeListli>
-                    </MainAgreeList>
-                </MainAgree>
                 <MainFin>
                     <MainFinButton>회원가입 완료</MainFinButton>
                 </MainFin>
+                </form>
             </Main>
         </>
     );
