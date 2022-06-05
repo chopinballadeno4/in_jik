@@ -157,7 +157,7 @@ const MenuLi = styled.li`
 
 function MainHeader() {
     const navigate = useNavigate();
-    const [isLogined, setIsLogined] = useState(true);
+    const [isLogined, setIsLogined] = useState(false);
     const { register, watch } = useForm();
     const [start, setStart] = useState([0,0,0,0,0,0]);
     const [end, setEnd] = useState([0,0,0,0,0,0]);
